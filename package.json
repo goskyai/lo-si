@@ -1,6 +1,6 @@
 {
   "name": "@gosky/lo-si",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Gosky's react ui component library",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
