@@ -1,3 +1,6 @@
 node_modules
 lib
 yarn-error.log
+
+# Generate by build.sh
+src/index.ts
