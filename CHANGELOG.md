@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/goskyai/lo-si/compare/v1.1.0...v1.2.0) (2021-11-05)
+
+
+### Bug Fixes
+
+* type of faker ([e319b70](https://github.com/goskyai/lo-si/commit/e319b700b7efaabc58b06f29ea5aad5bb9a6cd5a))
+
+
+### Features
+
+* add other component ([ebb0f46](https://github.com/goskyai/lo-si/commit/ebb0f46b4f72a2d69411c2493cf2433be195420f))
+
 # [1.1.0](https://github.com/goskyai/lo-si/compare/v1.0.0...v1.1.0) (2021-11-05)
 
 
