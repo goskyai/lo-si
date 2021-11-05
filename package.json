@@ -39,6 +39,7 @@
     "babel-loader": "^8.2.2",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
+    "faker": "^5.5.3",
     "gulp": "^4.0.2",
     "gulp-cached": "^1.1.1",
     "gulp-clean-css": "^4.3.0",
