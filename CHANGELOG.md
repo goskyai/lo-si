@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/goskyai/lo-si/compare/v1.2.0...v1.3.0) (2021-11-18)
+
+
+### Features
+
+* add other custom hooks ([8c77ce4](https://github.com/goskyai/lo-si/commit/8c77ce4abe0773beb9a9d070881e62286458e1ed))
+* add script of export custom hooks ([52b8528](https://github.com/goskyai/lo-si/commit/52b8528a33a3df8f33027c223d1ec8c0e478923b))
+
 # [1.2.0](https://github.com/goskyai/lo-si/compare/v1.1.0...v1.2.0) (2021-11-05)
 
 
