@@ -1,0 +1,29 @@
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+
+# Commit 規範：
+# - <type> 此 commit 的類型，常用如下
+#   - feat  標示為新功能，對應 minor 版本號碼
+#   - fix   問題修正，對應 patch 版本號碼
+#   - test  補充測試、修正測試功能
+#   - chore 其餘雜事，不影響任何功能
+# - [scope] 選填項目，揭示此 commit 對應到的範圍
+# - <description> 簡單扼要的描述 commit 的目的
+# - [body] 詳細描述這段程式的主要目的
+# - [footer] 可用來標記對應的 Ticket 或是 Issue 等等
+#
+# 範例:
+# -----------------------------------------------------------
+# feat(coupon): create coupon form
+#
+# 1. 新增建立 coupon 的表單
+# 2. 新增 coupon fragment
+# 3. 新增 CreateCouponQuery
+#
+# [Ticket: #123] [Issue: #123]
+# -----------------------------------------------------------
+# 注意 Subject 與 body、Footer 之間的空白不要刪掉惹
+# 詳細參考 https://www.conventionalcommits.org/zh-hant/v1.0.0
