@@ -38,7 +38,7 @@ const StyledAccordion = styled(Collapse)<AccordionProps>`
         justify-content: flex-end;
         align-items: center;
         color: ${({ headerColor }) =>
-          headerColor ? `${headerColor}` : 'var(--text-color)'};
+          headerColor ? headerColor : 'var(--text-color)'};
 
         & > i {
           margin-left: 0.625rem;

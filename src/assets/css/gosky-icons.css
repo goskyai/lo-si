@@ -13,7 +13,7 @@
 [class^='gsif-'],
 [class*=' gsif-'] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'GoSky-icon' !important;
+  font-family: 'GoSky-icon', sans-serif !important;
   speak: never;
   font-style: normal;
   font-weight: normal;

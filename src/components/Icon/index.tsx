@@ -33,13 +33,15 @@ export interface IconProps extends StyledProps {
   rotate?: number;
 }
 
+const rotating = (deg: number) => `rotate(${deg}deg)`;
+
 const StyledIcon = styled.i.withConfig<StyledProps>({
   shouldForwardProp: (prop, validator) =>
     !exceptionList.includes(prop) && validator(prop),
 })`
   transition: transform 0.25s;
   ${compose(color, fontSize)}
-  transform: ${({ rotate = 0 }) => `rotate(${rotate}deg)`};
+  transform: ${({ rotate = 0 }) => rotating(rotate)};
 `;
 
 export const Icon: FunctionComponent<IconProps> = ({ icon, ...props }) => {

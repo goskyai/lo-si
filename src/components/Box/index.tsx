@@ -36,11 +36,14 @@ export interface BoxProps
   visibility?: CSS.Property.Visibility;
 }
 
+const visibilityProp = (visibility?: CSS.Property.Visibility) =>
+  !visibility ? null : `visibility: ${visibility}`;
+
 export const Box = styled.div.withConfig({
   shouldForwardProp: (prop, validator) =>
     !exceptionList.includes(prop) && validator(prop),
 })<BoxProps>`
-  ${({ visibility }) => (!visibility ? null : `visibility: ${visibility}`)};
+  ${({ visibility }) => visibilityProp(visibility)};
   ${compose(
     border,
     layout,

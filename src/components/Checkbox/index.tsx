@@ -11,7 +11,7 @@ import {
 } from 'styled-system';
 
 import { ColorType, FontSizeType } from '../../assets/theme/global';
-import { color, ColorProps } from '../../utils/styled/color';
+import { color as colorUtil, ColorProps } from '../../utils/styled/color';
 
 interface StyledCheckboxProps extends SpaceProps, TypographyProps, ColorProps {}
 interface StyledCheckboxInputProps {
@@ -26,7 +26,7 @@ const StyledCheckbox = styled.label<StyledCheckboxProps>`
   align-items: center;
   line-height: 1.4;
   cursor: pointer;
-  ${compose(color, space, typography)}
+  ${compose(colorUtil, space, typography)}
 `;
 
 /* eslint-disable */
@@ -72,7 +72,7 @@ const StyledCheckmarkWrapper = styled.span<StyledCheckmarkWrapperProps>`
   margin-right: 0.5rem;
   position: relative;
   overflow: hidden;
-  ${compose(borderColor, color)}
+  ${compose(borderColor, colorUtil)}
   & > .checkmark {
     color: white;
   }

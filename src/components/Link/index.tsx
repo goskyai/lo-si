@@ -50,12 +50,13 @@ const StyledRouterLink = styled(RouterLink)<LinkProps>`
 
 export const Link: FunctionComponent<LinkProps> = ({ to, ...props }) => {
   const href = _.get(to, 'pathname', to);
-  const externalRegex = new RegExp('^http*|^#$');
+  const externalRegex = /^http*|^#$/;
   const isExternal = externalRegex.test(href);
 
-  return isExternal ? (
-    <StyledAnchor href={href === '#' ? void 0 : href} {...props} />
-  ) : (
-    <StyledRouterLink to={to} {...props} />
-  );
+  return (() => {
+    if (isExternal) {
+      return <StyledAnchor href={href === '#' ? void 0 : href} {...props} />;
+    }
+    return <StyledRouterLink to={to} {...props} />;
+  })();
 };

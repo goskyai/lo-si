@@ -1,6 +1,6 @@
 import { FunctionComponent, HTMLAttributes } from 'react';
-import styled from 'styled-components';
-import { variant } from 'styled-system';
+import styled, { DefaultTheme } from 'styled-components';
+import { variant as variantUtil } from 'styled-system';
 
 import { color, ColorProps } from '../../utils/styled/color';
 
@@ -9,12 +9,14 @@ interface StyledSpanProps extends Omit<ColorProps, 'backgroundColor'> {
   variant?: Variants;
 }
 
+const paddingProp = (space: DefaultTheme['space']) => `${space[2]} ${space[4]}`;
+
 const StyledSpan = styled.span<StyledSpanProps>`
   display: inline-block;
   font-size: ${({ theme }) => theme.fontSizes.body};
-  padding: ${({ theme }) => `${theme.space[2]} ${theme.space[4]}`};
+  padding: ${({ theme: { space } }) => paddingProp(space)};
   border-radius: 2rem;
-  ${variant({
+  ${variantUtil({
     variants: {
       blue: {
         backgroundColor: 'blue-200',

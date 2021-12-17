@@ -45,7 +45,7 @@ export interface PhysicsPNGProps {
   /**
    * 物體彈力。
    *
-   * `0` 表示物體之間碰撞完全無彈性、無反彈。
+   * `0` 表示物體之間碰撞完全無彈性、無反彈。
    *
    * `0.8` 表示會以本身動能的 80% 反彈。
    */
@@ -64,8 +64,8 @@ export const PhysicsPNG: FunctionComponent<PhysicsPNGProps> = ({
   restitution = 0,
 }) => {
   const engine = useRef(Engine.create());
-  const render = useRef() as React.MutableRefObject<Render>;
-  const scene = useRef() as React.MutableRefObject<HTMLCanvasElement>;
+  const render = useRef<Render | null>(null);
+  const scene = useRef<HTMLCanvasElement | null>(null);
   const dropInterval = useRef<number | null>(null);
 
   const wallPosition = {
@@ -91,7 +91,7 @@ export const PhysicsPNG: FunctionComponent<PhysicsPNGProps> = ({
 
   const createCanvas = () => {
     render.current = Render.create({
-      canvas: scene.current,
+      canvas: scene.current || undefined,
       engine: engine.current,
       options: {
         width: canvasWidth,
@@ -111,10 +111,12 @@ export const PhysicsPNG: FunctionComponent<PhysicsPNGProps> = ({
   };
 
   const removeCanvas = () => {
-    Render.stop(render.current);
-    World.clear(engine.current.world, false);
-    Engine.clear(engine.current);
-    render.current.canvas.remove();
+    if (render.current) {
+      Render.stop(render.current);
+      World.clear(engine.current.world, false);
+      Engine.clear(engine.current);
+      render.current.canvas.remove();
+    }
   };
 
   const dropRandomItem = () => {
