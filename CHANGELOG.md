@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/goskyai/lo-si/compare/v1.3.0...v1.3.1) (2021-12-20)
+
+
+### Bug Fixes
+
+* fixing protential bugs and code smell from sonarqube ([faf218e](https://github.com/goskyai/lo-si/commit/faf218eef8c009820f7582645e7420e8f0cdf1de))
+
 # [1.3.0](https://github.com/goskyai/lo-si/compare/v1.2.0...v1.3.0) (2021-11-18)
 
 
