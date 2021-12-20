@@ -10,11 +10,6 @@ declare global {
       css?: CSSProp<DefaultTheme>;
     }
   }
-
-  interface Window {
-    extAsyncInit?: () => void;
-    MessengerExtensions?: IMessengerExtensions;
-  }
 }
 
 declare module 'react-hot-toast' {
