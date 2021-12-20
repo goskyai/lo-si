@@ -1,8 +1,8 @@
 on:
   push:
     branches:
-      - master
-name: Main Workflow
+      - main
+name: SonarQube
 jobs:
   sonarqube:
     runs-on: ubuntu-latest
