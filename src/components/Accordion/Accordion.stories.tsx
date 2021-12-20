@@ -56,9 +56,9 @@ const NestedTemplate: Story<AccordionProps> = (args) => {
             Nested Content
           </p>
           <Accordion hideLastDivider borderStyle="dashed">
-            {fields().map((field, index) => (
-              <AccordionPanel key={index + 1} header={field.title}>
-                <div>{field.content}</div>
+            {fields().map((childField, childIndex) => (
+              <AccordionPanel key={childIndex + 1} header={childField.title}>
+                <div>{childField.content}</div>
               </AccordionPanel>
             ))}
           </Accordion>

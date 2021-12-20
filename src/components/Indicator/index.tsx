@@ -5,7 +5,7 @@ import {
   BackgroundColorProps,
   borderColor,
   BorderColorProps,
-  color,
+  color as colorUtil,
   compose,
   height,
   HeightProps,
@@ -84,7 +84,7 @@ const StyledBorder = styled.span<SpanInterface>`
 `;
 
 const StyledDot = styled.span<SpanInterface>`
-  ${color}
+  ${colorUtil}
   border-radius: 50%;
   height: calc(100% - 0.25rem);
   width: calc(100% - 0.25rem);

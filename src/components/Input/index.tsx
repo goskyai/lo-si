@@ -17,7 +17,7 @@ import {
 
 import { ColorType } from '../../assets/theme/global';
 import { CommonTextFieldProps } from '../../assets/types/ElementTypes';
-import { color } from '../../utils/styled/color';
+import { color as colorUtil } from '../../utils/styled/color';
 import { exceptionList } from '../../utils/styled/exceptionList';
 
 export interface InputProps
@@ -48,7 +48,7 @@ const StyledWrapper = styled.div.withConfig({
   shouldForwardProp: (prop, validator) =>
     !exceptionList.includes(prop) && validator(prop),
 })<StyledWrapperProps>`
-  ${compose(border, flexbox, layout, position, space, typography, color)}
+  ${compose(border, flexbox, layout, position, space, typography, colorUtil)}
   cursor: ${({ disabled }) => (disabled ? 'not-allowed	' : 'default')};
   &:hover,
   &:focus-within {
@@ -115,7 +115,7 @@ export const Input: FunctionComponent<InputProps> = forwardRef<
 
     return (
       <StyledWrapper
-        width={1 / 1}
+        width={1}
         border="1px solid"
         borderRadius="0.25rem"
         borderColor="grey-400"

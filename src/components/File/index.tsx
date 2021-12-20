@@ -53,17 +53,19 @@ export const File: FunctionComponent<FileProps> = forwardRef<
     ref,
   ) => {
     const [fileName, setFileName] = useState(defaultFileName);
+    const buttonContent = () => {
+      if (loading) {
+        return 'Loading...';
+      }
+      return buttonText ? buttonText : 'Browser File';
+    };
 
     return (
       <StyledWrapper>
         <Input readOnly value={fileName} disabled={disabled} {...props} />
         {!disabled && (
           <Button ml={10} as="label" {...buttonProps}>
-            {
-              /* eslint-disable indent */
-              loading ? 'Loading...' : buttonText ? buttonText : 'Browser File'
-              /* eslint-enable indent */
-            }
+            {buttonContent()}
             <input
               type="file"
               name={name}

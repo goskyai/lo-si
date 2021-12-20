@@ -9,7 +9,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import styled from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
 import {
   border,
   BorderProps,
@@ -23,7 +23,7 @@ import {
 } from 'styled-system';
 
 import { ColorType } from '../../assets/theme/global';
-import { color, ColorProps } from '../../utils/styled/color';
+import { color as colorUtil, ColorProps } from '../../utils/styled/color';
 
 const StyledWrapper = styled.div`
   position: relative;
@@ -53,6 +53,9 @@ interface StyledTextareaProps extends ColorProps {
   hoverBorderColor: string;
 }
 
+const borderProp = (colors: DefaultTheme['colors']) =>
+  `1px solid ${colors['grey-400']}`;
+
 /* eslint-disable indent */
 const StyledTextarea = styled.textarea<StyledTextareaProps>`
   width: 100%;
@@ -60,11 +63,11 @@ const StyledTextarea = styled.textarea<StyledTextareaProps>`
   font-size: ${({ theme }) => theme.fontSizes.h3};
   line-height: 1.4;
   color: black;
-  border: ${({ theme }) => `1px solid ${theme.colors['grey-400']}`};
+  border: ${({ theme: { colors } }) => borderProp(colors)};
   border-radius: 0.25rem;
   resize: vertical;
   outline: none;
-  ${compose(border, position, space, typography, color)}
+  ${compose(border, position, space, typography, colorUtil)}
   &::placeholder {
     color: ${({ theme }) => theme.colors.grey};
     font-weight: 300;

@@ -5,15 +5,15 @@ import styled from 'styled-components';
 import {
   BorderRadiusProps,
   compose,
-  maxWidth,
+  maxWidth as maxWidthUtil,
   MaxWidthProps,
   padding,
   PaddingProps,
   space,
   SpaceProps,
-  textAlign,
+  textAlign as textAlignUtil,
   TextAlignProps,
-  width,
+  width as widthUtil,
   WidthProps,
 } from 'styled-system';
 
@@ -82,7 +82,7 @@ const StyledContainer = styled.div.withConfig<
   border: 1px solid ${({ theme }) => theme.colors['grey-400']};
   width: 100%;
   animation: ${({ shake }) => shake && headshake} 1s;
-  ${compose(color, width, padding, maxWidth, textAlign)}
+  ${compose(color, widthUtil, padding, maxWidthUtil, textAlignUtil)}
 `;
 
 const StyledCloseButtonWrapper = styled.div`

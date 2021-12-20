@@ -11,7 +11,7 @@ import {
 
 import globalTheme, { ColorType } from '../../assets/theme/global';
 import { CommonButtonProps } from '../../assets/types/ElementTypes';
-import { color, ColorProps } from '../../utils/styled/color';
+import { color as colorUtil, ColorProps } from '../../utils/styled/color';
 import { exceptionList } from '../../utils/styled/exceptionList';
 
 type SizeType = 'small' | undefined;
@@ -77,7 +77,7 @@ const StyledButton = styled.button.withConfig({
     color: white;
     border-color: ${({ theme }) => theme.colors.grey};
   }
-  ${compose(border, layout, position, space, typography, color)}
+  ${compose(border, layout, position, space, typography, colorUtil)}
 `;
 /* eslint-enable indent */
 
@@ -93,7 +93,12 @@ export const Button: FunctionComponent<ButtonProps> = ({
   const { transparent } = globalTheme.colors;
   const fontSize = size === 'small' ? 'body' : 'h3';
   const textColor = outline ? color : 'white';
-  const bg = disabled ? 'grey' : outline ? transparent : color;
+  const bg = (() => {
+    if (disabled) {
+      return 'grey';
+    }
+    return outline ? transparent : color;
+  })();
   const borderColor = disabled ? 'grey' : color;
   const borderWidth = size === 'small' ? 1 : 2;
   const px = size === 'small' ? 12 : 15;

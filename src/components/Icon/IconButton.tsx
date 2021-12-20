@@ -16,6 +16,8 @@ interface StyledIconButtonProps extends SpaceProps {
   textColor: ColorType;
 }
 
+const iconColor = (textColor: ColorType) => `${textColor}-600`;
+
 const StyledIconButton = styled.button<StyledIconButtonProps>`
   display: inline-flex;
   justify-content: center;
@@ -34,7 +36,7 @@ const StyledIconButton = styled.button<StyledIconButtonProps>`
     transition: color 0.2s;
   }
   &:hover i {
-    color: ${({ theme, textColor }) => theme.colors[`${textColor}-600`]};
+    color: ${({ theme, textColor }) => theme.colors[iconColor(textColor)]};
   }
 `;
 

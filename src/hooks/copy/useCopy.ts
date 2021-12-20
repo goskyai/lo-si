@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 
 export const useCopy = (text: string): (() => void) => {
-  const copyToClipboard = useCallback(() => {
+  return useCallback(() => {
     const el = document.createElement('textarea');
     el.value = text;
     el.setAttribute('readonly', '');
@@ -14,7 +14,12 @@ export const useCopy = (text: string): (() => void) => {
       const selected =
         selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
       el.select();
-      document.execCommand('copy');
+
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text);
+      } else {
+        document.execCommand('copy');
+      }
       document.body.removeChild(el);
 
       if (selected) {
@@ -23,6 +28,4 @@ export const useCopy = (text: string): (() => void) => {
       }
     }
   }, [text]);
-
-  return copyToClipboard;
 };
