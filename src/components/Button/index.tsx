@@ -7,19 +7,32 @@ import {
   position,
   space,
   typography,
+  variant,
 } from 'styled-system';
-
-import globalTheme, { ColorType } from '../../assets/theme/global';
+import { ColorType } from '../../assets/theme/global';
 import { CommonButtonProps } from '../../assets/types/ElementTypes';
-import { color as colorUtil, ColorProps } from '../../utils/styled/color';
 import { exceptionList } from '../../utils/styled/exceptionList';
 
-type SizeType = 'small' | undefined;
+export type ButtonSizeType = 'small' | 'normal';
+export type ButtonStyleType = 'primary' | 'secondary';
+export type ButtonColorType =
+  | 'gosky-blue'
+  | 'gosky-orange'
+  | 'gosky-green'
+  | 'red'
+  | 'green';
 
-interface StyledButtonProps extends CommonButtonProps, ColorProps {
-  hoverColor: string;
-  activeColor: string;
-  outline: boolean;
+const colorProp = (
+  baseColor: ButtonColorType | 'grey',
+  level?: '200' | '300' | '400' | '500' | '600',
+): ColorType => {
+  return level ? (`${baseColor}-${level}` as ColorType) : baseColor;
+};
+
+interface StyledButtonProps extends CommonButtonProps {
+  size: ButtonSizeType;
+  styleType: ButtonStyleType;
+  color: ButtonColorType;
   block: boolean;
 }
 
@@ -28,21 +41,21 @@ export interface ButtonProps
     ButtonHTMLAttributes<HTMLButtonElement> {
   as?: string | React.ComponentType<Record<string, unknown>>;
   /**
-   * 中空樣式
-   */
-  outline?: boolean;
-  /**
-   * 按鈕寬度 100%
-   */
-  block?: boolean;
-  /**
-   * 改變按鈕顏色，支援所有 Primary, Secondary Color
-   */
-  color?: ColorType;
-  /**
    * 改變按鈕大小，default 大小不需輸入
    */
-  size?: SizeType;
+  size?: ButtonSizeType;
+  /**
+   * Primary 或 Secondary 按鈕
+   */
+  styleType?: ButtonStyleType;
+  /**
+   * 按鈕顏色
+   */
+  color?: ButtonColorType;
+  /**
+   * 切換按鈕 display 為 block，預設為 inline
+   */
+  block?: boolean;
 }
 
 /* eslint-disable indent */
@@ -50,73 +63,94 @@ const StyledButton = styled.button.withConfig({
   shouldForwardProp: (prop, validator) =>
     !exceptionList.includes(prop) && validator(prop),
 })<StyledButtonProps>`
-  line-height: 1.4;
   border-style: solid;
+  border-width: 0.125rem;
   border-radius: 0.25rem;
-  transition: all 0.2s;
+  line-height: 1.3;
   cursor: pointer;
   word-break: keep-all;
-  ${({ block }) => block && 'display: block; width: 100%;'};
+  transition: all 0.2s;
+  display: ${({ block }) => (block ? 'block' : 'inline')};
+  width: ${({ block }) => (block ? '100%' : 'auto')};
+
   &:hover {
-    background-color: ${({ theme, outline, hoverColor }) =>
-      outline ? theme.colors.transparent : theme.colors[hoverColor]};
-    color: ${({ theme, outline, hoverColor }) =>
-      outline ? theme.colors[hoverColor] : 'white'};
-    border-color: ${({ theme, hoverColor }) => theme.colors[hoverColor]};
+    border-color: ${({ theme, color }) =>
+      theme.colors[colorProp(color, '300')]};
   }
-  &:active {
-    background-color: ${({ theme, outline, activeColor }) =>
-      outline ? theme.colors.transparent : theme.colors[activeColor]};
-    color: ${({ theme, outline, activeColor }) =>
-      outline ? theme.colors[activeColor] : 'white'};
-    border-color: ${({ theme, activeColor }) => theme.colors[activeColor]};
-  }
+
   &:disabled {
     cursor: not-allowed;
-    background-color: ${({ theme }) => theme.colors.grey};
-    color: white;
-    border-color: ${({ theme }) => theme.colors.grey};
+    border-color: ${({ theme }) => theme.colors[colorProp('grey', '200')]};
   }
-  ${compose(border, layout, position, space, typography, colorUtil)}
+
+  ${({ color }) =>
+    variant({
+      prop: 'styleType',
+      variants: {
+        primary: {
+          color: 'white',
+          backgroundColor: color,
+          borderColor: color,
+          '&:hover': {
+            backgroundColor: colorProp(color, '300'),
+          },
+          '&:active': {
+            backgroundColor: colorProp(color, '400'),
+            borderColor: colorProp(color, '400'),
+          },
+          '&:disabled': {
+            backgroundColor: colorProp('grey', '200'),
+          },
+        },
+        secondary: {
+          backgroundColor: 'white',
+          color: colorProp(color, '400'),
+          borderColor: colorProp(color, '400'),
+          '&:hover': {
+            color: colorProp(color, '300'),
+          },
+          '&:active': {
+            color: color,
+            borderColor: color,
+          },
+          '&:disabled': {
+            color: colorProp('grey', '300'),
+          },
+        },
+      },
+    })}
+  ${variant({
+    prop: 'size',
+    variants: {
+      normal: {
+        px: '1.25rem',
+        py: '0.5rem',
+      },
+      small: {
+        px: '1rem',
+        py: '0.5rem',
+        fontSize: '0.75rem',
+      },
+    },
+  })}
+  ${compose(border, layout, position, space, typography)}
 `;
 /* eslint-enable indent */
 
 export const Button: FunctionComponent<ButtonProps> = ({
-  disabled = false,
-  outline = false,
+  size = 'normal',
+  styleType = 'primary',
+  color = 'gosky-blue',
   block = false,
-  color = 'blue',
-  size = undefined,
+  disabled = false,
   children,
   ...props
 }) => {
-  const { transparent } = globalTheme.colors;
-  const fontSize = size === 'small' ? 'body' : 'h3';
-  const textColor = outline ? color : 'white';
-  const bg = (() => {
-    if (disabled) {
-      return 'grey';
-    }
-    return outline ? transparent : color;
-  })();
-  const borderColor = disabled ? 'grey' : color;
-  const borderWidth = size === 'small' ? 1 : 2;
-  const px = size === 'small' ? 12 : 15;
-  const py = size === 'small' ? 3 : 5;
-  const hoverColor = `${color}-600`;
-  const activeColor = `${color}-400`;
   return (
     <StyledButton
-      fontSize={fontSize}
-      textColor={textColor}
-      bg={bg}
-      borderColor={borderColor}
-      borderWidth={borderWidth}
-      px={px}
-      py={py}
-      hoverColor={hoverColor}
-      activeColor={activeColor}
-      outline={outline}
+      size={size}
+      styleType={styleType}
+      color={color}
       block={block}
       disabled={disabled}
       {...props}
