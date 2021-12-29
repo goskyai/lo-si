@@ -14,7 +14,6 @@ import {
   typography,
   TypographyProps,
 } from 'styled-system';
-
 import { ColorType } from '../../assets/theme/global';
 import { CommonTextFieldProps } from '../../assets/types/ElementTypes';
 import { color as colorUtil } from '../../utils/styled/color';
@@ -41,7 +40,7 @@ interface StyledWrapperProps
     FlexboxProps,
     LayoutProps {
   disabled: boolean;
-  hoverColor: string;
+  hoverColor: ColorType;
 }
 
 const StyledWrapper = styled.div.withConfig({
@@ -111,7 +110,9 @@ export const Input: FunctionComponent<InputProps> = forwardRef<
   ) => {
     const { disabled = false } = props;
     const wrapperBackgroundColor = disabled ? 'grey-400' : 'grey-200';
-    const wrapperHoverBorderColor = disabled ? 'grey-400' : `${color}-600`;
+    const wrapperHoverBorderColor = disabled
+      ? 'grey-400'
+      : (`${color}-600` as ColorType);
 
     return (
       <StyledWrapper

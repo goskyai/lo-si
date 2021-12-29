@@ -9,13 +9,12 @@ import {
   typography,
   TypographyProps,
 } from 'styled-system';
-
 import { ColorType, FontSizeType } from '../../assets/theme/global';
 import { color as colorUtil, ColorProps } from '../../utils/styled/color';
 
 interface StyledCheckboxProps extends SpaceProps, TypographyProps, ColorProps {}
 interface StyledCheckboxInputProps {
-  checkedColor: string;
+  checkedColor: ColorType;
 }
 interface StyledCheckmarkWrapperProps extends BorderColorProps, ColorProps {}
 
@@ -115,7 +114,7 @@ export const Checkbox: FunctionComponent<CheckboxProps> = forwardRef<
       defaultChecked = false,
       disabled = false,
       fontSize = 'body',
-      color = 'blue',
+      color = 'gosky-blue',
       onChange,
       mt,
       mb,
