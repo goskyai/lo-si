@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import { IconButton } from './IconButton';
 
 export default {
@@ -14,4 +13,10 @@ const Template: ComponentStory<typeof IconButton> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   icon: 'pen',
+};
+
+export const CustomColor = Template.bind({});
+CustomColor.args = {
+  icon: 'pen',
+  textColor: 'gosky-orange',
 };
