@@ -1,7 +1,6 @@
 import { FunctionComponent, ReactNode } from 'react';
 import styled from 'styled-components';
 import { padding, PaddingProps } from 'styled-system';
-
 import { ColorType } from '../../assets/theme/global';
 import { Button } from '../Button';
 import { Modal, ModalProps } from '../Modal';
@@ -61,7 +60,11 @@ export const Confirm: FunctionComponent<ConfirmProps> = ({
         {children}
         <StyledButtonsWrapper>
           {hasCancel && (
-            <Button color={themeColor} outline onClick={onCancel || onClose}>
+            <Button
+              color={themeColor}
+              styleType="secondary"
+              onClick={onCancel || onClose}
+            >
               {cancelLabel || 'Cancel'}
             </Button>
           )}
