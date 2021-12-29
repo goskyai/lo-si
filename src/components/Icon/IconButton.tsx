@@ -16,6 +16,7 @@ interface StyledIconButtonProps extends SpaceProps {
   textColor: MainColorType | NeutralColorType;
 }
 
+/* eslint-disable indent */
 const StyledIconButton = styled.button<StyledIconButtonProps>`
   display: inline-flex;
   justify-content: center;
@@ -38,6 +39,7 @@ const StyledIconButton = styled.button<StyledIconButtonProps>`
       theme.colors[getColorKey(textColor, '600')]};
   }
 `;
+/* eslint-enable indent */
 
 export interface IconButtonProps
   extends SpaceProps,
