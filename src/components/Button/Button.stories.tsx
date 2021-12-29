@@ -35,4 +35,4 @@ export const Block = Template.bind({});
 Block.args = { block: true };
 
 export const Color = Template.bind({});
-Color.args = { color: 'gosky-orange' };
+Color.args = { themeColor: 'gosky-orange' };

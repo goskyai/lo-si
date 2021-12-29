@@ -32,7 +32,7 @@ const colorProp = (
 interface StyledButtonProps extends CommonButtonProps {
   size: ButtonSizeType;
   styleType: ButtonStyleType;
-  color: ButtonColorType;
+  themeColor: ButtonColorType;
   block: boolean;
 }
 
@@ -51,7 +51,7 @@ export interface ButtonProps
   /**
    * 按鈕顏色
    */
-  color?: ButtonColorType;
+  themeColor?: ButtonColorType;
   /**
    * 切換按鈕 display 為 block，預設為 inline
    */
@@ -74,8 +74,8 @@ const StyledButton = styled.button.withConfig({
   width: ${({ block }) => (block ? '100%' : 'auto')};
 
   &:hover {
-    border-color: ${({ theme, color }) =>
-      theme.colors[colorProp(color, '300')]};
+    border-color: ${({ theme, themeColor }) =>
+      theme.colors[colorProp(themeColor, '300')]};
   }
 
   &:disabled {
@@ -83,20 +83,20 @@ const StyledButton = styled.button.withConfig({
     border-color: ${({ theme }) => theme.colors[colorProp('grey', '200')]};
   }
 
-  ${({ color }) =>
+  ${({ themeColor }) =>
     variant({
       prop: 'styleType',
       variants: {
         primary: {
           color: 'white',
-          backgroundColor: color,
-          borderColor: color,
+          backgroundColor: themeColor,
+          borderColor: themeColor,
           '&:hover': {
-            backgroundColor: colorProp(color, '300'),
+            backgroundColor: colorProp(themeColor, '300'),
           },
           '&:active': {
-            backgroundColor: colorProp(color, '400'),
-            borderColor: colorProp(color, '400'),
+            backgroundColor: colorProp(themeColor, '400'),
+            borderColor: colorProp(themeColor, '400'),
           },
           '&:disabled': {
             backgroundColor: colorProp('grey', '200'),
@@ -104,14 +104,14 @@ const StyledButton = styled.button.withConfig({
         },
         secondary: {
           backgroundColor: 'white',
-          color: colorProp(color, '400'),
-          borderColor: colorProp(color, '400'),
+          color: colorProp(themeColor, '400'),
+          borderColor: colorProp(themeColor, '400'),
           '&:hover': {
-            color: colorProp(color, '300'),
+            color: colorProp(themeColor, '300'),
           },
           '&:active': {
-            color: color,
-            borderColor: color,
+            color: themeColor,
+            borderColor: themeColor,
           },
           '&:disabled': {
             color: colorProp('grey', '300'),
@@ -140,7 +140,7 @@ const StyledButton = styled.button.withConfig({
 export const Button: FunctionComponent<ButtonProps> = ({
   size = 'normal',
   styleType = 'primary',
-  color = 'gosky-blue',
+  themeColor = 'gosky-blue',
   block = false,
   disabled = false,
   children,
@@ -150,7 +150,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
     <StyledButton
       size={size}
       styleType={styleType}
-      color={color}
+      themeColor={themeColor}
       block={block}
       disabled={disabled}
       {...props}
