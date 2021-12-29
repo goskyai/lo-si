@@ -2,6 +2,23 @@ import { createGlobalStyle } from 'styled-components';
 
 export type GlobalThemeType = typeof globalTheme;
 export type ColorType = keyof typeof themeColors;
+export type MainColorType =
+  | 'gosky-blue'
+  | 'gosky-orange'
+  | 'gosky-green'
+  | 'red'
+  | 'green';
+export type NeutralColorType = 'grey';
+export type ColorLevelType =
+  | '100'
+  | '200'
+  | '300'
+  | '400'
+  | '500'
+  | '600'
+  | '700'
+  | '800'
+  | '900';
 export type FontSizeType = keyof typeof themeFontSizes;
 export type FontFamilyType = keyof typeof themeFontFamily;
 export type GridType = true | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;

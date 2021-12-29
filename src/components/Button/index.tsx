@@ -9,30 +9,18 @@ import {
   typography,
   variant,
 } from 'styled-system';
-import { ColorType } from '../../assets/theme/global';
+import { MainColorType } from '../../assets/theme/global';
 import { CommonButtonProps } from '../../assets/types/ElementTypes';
+import { getColorKey } from '../../utils/styled/color';
 import { exceptionList } from '../../utils/styled/exceptionList';
 
 export type ButtonSizeType = 'small' | 'normal';
 export type ButtonStyleType = 'primary' | 'secondary';
-export type ButtonColorType =
-  | 'gosky-blue'
-  | 'gosky-orange'
-  | 'gosky-green'
-  | 'red'
-  | 'green';
-
-const colorProp = (
-  baseColor: ButtonColorType | 'grey',
-  level?: '200' | '300' | '400' | '500' | '600',
-): ColorType => {
-  return level ? (`${baseColor}-${level}` as ColorType) : baseColor;
-};
 
 interface StyledButtonProps extends CommonButtonProps {
   size: ButtonSizeType;
   styleType: ButtonStyleType;
-  themeColor: ButtonColorType;
+  themeColor: MainColorType;
   block: boolean;
 }
 
@@ -51,7 +39,7 @@ export interface ButtonProps
   /**
    * 按鈕顏色
    */
-  themeColor?: ButtonColorType;
+  themeColor?: MainColorType;
   /**
    * 切換按鈕 display 為 block，預設為 inline
    */
@@ -75,12 +63,12 @@ const StyledButton = styled.button.withConfig({
 
   &:hover {
     border-color: ${({ theme, themeColor }) =>
-      theme.colors[colorProp(themeColor, '300')]};
+      theme.colors[getColorKey(themeColor, '300')]};
   }
 
   &:disabled {
     cursor: not-allowed;
-    border-color: ${({ theme }) => theme.colors[colorProp('grey', '200')]};
+    border-color: ${({ theme }) => theme.colors[getColorKey('grey', '200')]};
   }
 
   ${({ themeColor }) =>
@@ -92,29 +80,29 @@ const StyledButton = styled.button.withConfig({
           backgroundColor: themeColor,
           borderColor: themeColor,
           '&:hover': {
-            backgroundColor: colorProp(themeColor, '300'),
+            backgroundColor: getColorKey(themeColor, '300'),
           },
           '&:active': {
-            backgroundColor: colorProp(themeColor, '400'),
-            borderColor: colorProp(themeColor, '400'),
+            backgroundColor: getColorKey(themeColor, '400'),
+            borderColor: getColorKey(themeColor, '400'),
           },
           '&:disabled': {
-            backgroundColor: colorProp('grey', '200'),
+            backgroundColor: getColorKey('grey', '200'),
           },
         },
         secondary: {
           backgroundColor: 'white',
-          color: colorProp(themeColor, '400'),
-          borderColor: colorProp(themeColor, '400'),
+          color: getColorKey(themeColor, '400'),
+          borderColor: getColorKey(themeColor, '400'),
           '&:hover': {
-            color: colorProp(themeColor, '300'),
+            color: getColorKey(themeColor, '300'),
           },
           '&:active': {
             color: themeColor,
             borderColor: themeColor,
           },
           '&:disabled': {
-            color: colorProp('grey', '300'),
+            color: getColorKey('grey', '300'),
           },
         },
       },
