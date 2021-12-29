@@ -11,7 +11,7 @@ const StyledCheckbox = styled.input`
   display: none;
 
   &:checked ~ .switch-track {
-    background: ${({ theme }) => theme.colors.blue};
+    background: ${({ theme }) => theme.colors['gosky-blue']};
 
     &:after {
       left: 1.125rem;
