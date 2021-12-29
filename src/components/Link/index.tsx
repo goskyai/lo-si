@@ -14,7 +14,6 @@ import {
   typography,
   TypographyProps,
 } from 'styled-system';
-
 import { color, ColorProps } from '../../utils/styled/color';
 
 interface LinkStyleProps {
@@ -32,7 +31,7 @@ export interface LinkProps extends AnchorProps, RouterLinkProps {}
 const LinkStyle = css<LinkStyleProps>`
   display: inline;
   text-decoration: none;
-  font-size: ${({ theme }) => theme.fontSizes.body};
+  font-size: ${({ theme }) => theme.fontSizes.h4};
   color: ${({ theme }) => theme.colors['grey-500']};
   line-height: 1.4;
   margin: 0;

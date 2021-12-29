@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export interface MenuItemProps extends AntdMenuItemProps {}
 
 const StyledMenuItem = styled(AntdMenu.Item)<MenuItemProps>`
-  font-size: ${({ theme }) => theme.fontSizes.body};
+  font-size: ${({ theme }) => theme.fontSizes.h4};
   line-height: 1.4;
   padding: 0.5rem 0.75rem;
 `;

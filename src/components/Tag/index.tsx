@@ -1,7 +1,6 @@
 import { FunctionComponent, HTMLAttributes } from 'react';
 import styled, { DefaultTheme } from 'styled-components';
 import { variant as variantUtil } from 'styled-system';
-
 import { color, ColorProps } from '../../utils/styled/color';
 
 type Variants = 'blue' | 'green' | 'red' | 'grey';
@@ -13,7 +12,7 @@ const paddingProp = (space: DefaultTheme['space']) => `${space[2]} ${space[4]}`;
 
 const StyledSpan = styled.span<StyledSpanProps>`
   display: inline-block;
-  font-size: ${({ theme }) => theme.fontSizes.body};
+  font-size: ${({ theme }) => theme.fontSizes.h4};
   padding: ${({ theme: { space } }) => paddingProp(space)};
   border-radius: 2rem;
   ${variantUtil({

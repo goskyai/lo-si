@@ -6,7 +6,7 @@ export interface MenuProps extends Omit<AntdMenuProps, 'theme'> {}
 
 const StyledMenu = styled(AntdMenu)<MenuProps>`
   &.ant-dropdown-menu {
-    font-size: ${({ theme }) => theme.fontSizes.body};
+    font-size: ${({ theme }) => theme.fontSizes.h4};
     line-height: 1.4;
     padding: 1rem 0.5rem;
     box-shadow: none;
