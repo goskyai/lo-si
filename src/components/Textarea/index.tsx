@@ -125,7 +125,7 @@ export const Textarea: FunctionComponent<TextareaProps> = forwardRef<
   const hoverBorderColor = disabled
     ? 'grey-400'
     : (`${color}-600` as ColorType);
-  const bgColor = disabled ? 'grey-400' : 'grey-200';
+  const bgColor = disabled ? 'grey-200' : 'grey-100';
 
   return (
     <StyledWrapper>
