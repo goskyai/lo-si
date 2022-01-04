@@ -31,7 +31,7 @@ const StyledWrapper = styled.div`
 
 interface StyledCounterProps {
   exceeded: boolean;
-  bg: 'grey-400' | 'grey-200';
+  bg: ColorType;
   displayCounter: boolean;
 }
 
