@@ -62,7 +62,7 @@ export const Confirm: FunctionComponent<ConfirmProps> = ({
           {hasCancel && (
             <Button
               color={themeColor}
-              styleType="secondary"
+              variant="secondary"
               onClick={onCancel || onClose}
             >
               {cancelLabel || 'Cancel'}
