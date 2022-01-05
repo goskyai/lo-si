@@ -6,6 +6,19 @@ import {
   system,
   TextColorProps,
 } from 'styled-system';
+import {
+  ColorLevelType,
+  ColorType,
+  MainColorType,
+  NeutralColorType,
+} from '../../assets/theme/global';
+
+export const getColorKey = (
+  base: MainColorType | NeutralColorType,
+  level?: ColorLevelType,
+): ColorType => {
+  return level ? (`${base}-${level}` as ColorType) : base;
+};
 
 // Styled-system patch for the color prop fixing "Types of property 'color' are incompatible"
 // when applying props to component that extend ColorProps.

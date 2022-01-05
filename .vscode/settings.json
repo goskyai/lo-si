@@ -2,5 +2,8 @@
   "sonarlint.connectedMode.project": {
     "connectionId": "sonarqube-gosky",
     "projectKey": "goskyai_lo-si"
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
   }
 }

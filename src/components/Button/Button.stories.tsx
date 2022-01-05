@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import { Button } from '.';
 import { Box } from '../Box';
 
@@ -17,20 +16,23 @@ const Template: ComponentStory<typeof Button> = (args) => (
 
 export const Default = Template.bind({});
 
-export const Outline = Template.bind({});
-Outline.args = { outline: true };
+export const Secondary = Template.bind({});
+Secondary.args = { variant: 'secondary' };
+
+export const Disabled = Template.bind({});
+Disabled.args = { disabled: true };
 
 export const Small = Template.bind({});
 Small.args = { size: 'small' };
 
-export const SmallOutline = Template.bind({});
-SmallOutline.args = { size: 'small', outline: true };
+export const SmallSecondary = Template.bind({});
+SmallSecondary.args = { size: 'small', variant: 'secondary' };
 
-export const Disabled = Template.bind({});
-Disabled.args = { disabled: true };
+export const SmallDisabled = Template.bind({});
+SmallDisabled.args = { size: 'small', disabled: true };
 
 export const Block = Template.bind({});
 Block.args = { block: true };
 
 export const Color = Template.bind({});
-Color.args = { color: 'red' };
+Color.args = { themeColor: 'gosky-orange' };

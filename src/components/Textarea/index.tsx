@@ -21,7 +21,6 @@ import {
   typography,
   TypographyProps,
 } from 'styled-system';
-
 import { ColorType } from '../../assets/theme/global';
 import { color as colorUtil, ColorProps } from '../../utils/styled/color';
 
@@ -32,7 +31,7 @@ const StyledWrapper = styled.div`
 
 interface StyledCounterProps {
   exceeded: boolean;
-  bg: 'grey-400' | 'grey-200';
+  bg: ColorType;
   displayCounter: boolean;
 }
 
@@ -40,7 +39,7 @@ const StyledCounter = styled.div<StyledCounterProps>`
   position: absolute;
   bottom: 0.625rem;
   right: 0.625rem;
-  font-size: ${({ theme }) => theme.fontSizes.body};
+  font-size: ${({ theme }) => theme.fontSizes.h4};
   line-height: 1.4;
   color: ${({ theme, exceeded }) =>
     exceeded ? theme.colors['red-500'] : theme.colors['grey-500']};
@@ -50,7 +49,7 @@ const StyledCounter = styled.div<StyledCounterProps>`
 `;
 
 interface StyledTextareaProps extends ColorProps {
-  hoverBorderColor: string;
+  hoverBorderColor: ColorType;
 }
 
 const borderProp = (colors: DefaultTheme['colors']) =>
@@ -123,8 +122,10 @@ export const Textarea: FunctionComponent<TextareaProps> = forwardRef<
     return () => clearTimeout(timeout.current);
   }, [value]);
 
-  const hoverBorderColor = disabled ? 'grey-400' : `${color}-600`;
-  const bgColor = disabled ? 'grey-400' : 'grey-200';
+  const hoverBorderColor = disabled
+    ? 'grey-400'
+    : (`${color}-600` as ColorType);
+  const bgColor = disabled ? 'grey-200' : 'grey-100';
 
   return (
     <StyledWrapper>

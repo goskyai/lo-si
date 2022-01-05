@@ -14,16 +14,16 @@ const StyledRadio = styled.label<MarginProps>`
     justify-content: center;
     height: 1.25rem;
     width: 1.25rem;
-    background: ${({ theme }) => theme.colors['blue-200']};
+    background: ${({ theme }) => theme.colors['gosky-blue-200']};
     border-radius: 50%;
-    border: 1px solid ${({ theme }) => theme.colors.blue};
+    border: 1px solid ${({ theme }) => theme.colors['gosky-blue']};
     cursor: pointer;
 
     &::after {
       width: 0.875rem;
       height: 0.875rem;
       border-radius: 50%;
-      background: ${({ theme }) => theme.colors.blue};
+      background: ${({ theme }) => theme.colors['gosky-blue']};
       display: block;
       content: '';
       opacity: 0;

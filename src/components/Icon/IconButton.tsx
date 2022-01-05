@@ -7,17 +7,16 @@ import {
   space,
   SpaceProps,
 } from 'styled-system';
-
 import { Icon, IconTypes } from '.';
-import { ColorType } from '../../assets/theme/global';
+import { MainColorType, NeutralColorType } from '../../assets/theme/global';
+import { getColorKey } from '../../utils/styled/color';
 
 interface StyledIconButtonProps extends SpaceProps {
   fontSize: string;
-  textColor: ColorType;
+  textColor: MainColorType | NeutralColorType;
 }
 
-const iconColor = (textColor: ColorType) => `${textColor}-600`;
-
+/* eslint-disable indent */
 const StyledIconButton = styled.button<StyledIconButtonProps>`
   display: inline-flex;
   justify-content: center;
@@ -36,9 +35,11 @@ const StyledIconButton = styled.button<StyledIconButtonProps>`
     transition: color 0.2s;
   }
   &:hover i {
-    color: ${({ theme, textColor }) => theme.colors[iconColor(textColor)]};
+    color: ${({ theme, textColor }) =>
+      theme.colors[getColorKey(textColor, '600')]};
   }
 `;
+/* eslint-enable indent */
 
 export interface IconButtonProps
   extends SpaceProps,
@@ -46,7 +47,7 @@ export interface IconButtonProps
     ButtonHTMLAttributes<HTMLButtonElement> {
   icon: IconTypes;
   fontSize?: string;
-  textColor?: ColorType;
+  textColor?: MainColorType | NeutralColorType;
 }
 
 export const IconButton: FunctionComponent<IconButtonProps> = ({

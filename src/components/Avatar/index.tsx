@@ -12,7 +12,7 @@ const StyledContainer = styled.div`
   width: 2.5rem;
   height: 2.5rem;
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.blue};
+  background-color: ${({ theme }) => theme.colors['gosky-blue']};
   object-fit: cover;
   color: #fff;
   font-size: ${({ theme }) => theme.fontSizes.h2};

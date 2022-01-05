@@ -16,7 +16,6 @@ import {
   typography,
   TypographyProps,
 } from 'styled-system';
-
 import { color, ColorProps } from '../../utils/styled/color';
 import { exceptionList } from '../../utils/styled/exceptionList';
 
@@ -38,7 +37,7 @@ const StyledText = styled.p.withConfig<TextProps>({
     !exceptionList.includes(prop) && validator(prop),
 })`
   line-height: 1.4;
-  font-size: ${({ theme }) => theme.fontSizes.body};
+  font-size: ${({ theme }) => theme.fontSizes.h4};
   margin: 0;
   display: block;
   white-space: ${({ whiteSpace }) => whiteSpace || 'pre-line'};
