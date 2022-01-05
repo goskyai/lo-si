@@ -1,13 +1,13 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Text, TextProps } from '.';
+import { Text } from '.';
 
 export default {
   title: 'Components/Text',
   component: Text,
   argTypes: {},
-} as ComponentMeta<TextProps>;
+} as ComponentMeta<typeof Text>;
 
-const Template: ComponentStory<TextProps> = (args) => (
+const Template: ComponentStory<typeof Text> = (args) => (
   <Text {...args}>Hello World!</Text>
 );
 
