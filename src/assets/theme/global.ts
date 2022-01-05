@@ -57,7 +57,7 @@ const themeColors = {
 
   green: '#22CC33',
   'green-200': '#E9FAEB',
-  'green-300': '#AACBFF',
+  'green-300': '#D3F5D6',
   'green-400': '#7AE085',
   'green-500': '#22CC33',
   'green-600': '#0EA413',
