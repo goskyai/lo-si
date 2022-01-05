@@ -78,24 +78,16 @@ const StyledButton = styled.button.withConfig({
 /* eslint-enable indent */
 
 export const Button: FunctionComponent<ButtonProps> = ({
-  size = 'normal',
-  variant = 'primary',
-  themeColor = 'gosky-blue',
-  block = false,
-  disabled = false,
   children,
   ...props
 }) => {
-  return (
-    <StyledButton
-      size={size}
-      variant={variant}
-      themeColor={themeColor}
-      block={block}
-      disabled={disabled}
-      {...props}
-    >
-      {children}
-    </StyledButton>
-  );
+  return <StyledButton {...props}>{children}</StyledButton>;
+};
+
+Button.defaultProps = {
+  size: 'normal',
+  variant: 'primary',
+  themeColor: 'gosky-blue',
+  block: false,
+  disabled: false,
 };
