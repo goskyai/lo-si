@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import faker from 'faker';
 import { Text } from '.';
 
 export default {
@@ -7,9 +8,10 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof Text>;
 
-const Template: ComponentStory<typeof Text> = (args) => (
-  <Text {...args}>Hello World!</Text>
-);
+const Template: ComponentStory<typeof Text> = ({
+  children = 'Hello World!',
+  ...args
+}) => <Text {...args}>{children}</Text>;
 
 export const Default = Template.bind({});
 Default.args = {};
@@ -49,3 +51,12 @@ Strong.args = { strong: true };
 
 export const Italic = Template.bind({});
 Italic.args = { italic: true };
+
+export const Copyable = Template.bind({});
+Copyable.args = { copyable: true };
+
+export const Editable = Template.bind({});
+Editable.args = { editable: true };
+
+export const Ellipsis = Template.bind({});
+Ellipsis.args = { ellipsis: true, children: faker.lorem.paragraphs(20) };
