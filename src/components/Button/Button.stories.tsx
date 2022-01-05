@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof Button> = (args) => (
 export const Default = Template.bind({});
 
 export const Secondary = Template.bind({});
-Secondary.args = { styleType: 'secondary' };
+Secondary.args = { variant: 'secondary' };
 
 export const Disabled = Template.bind({});
 Disabled.args = { disabled: true };
@@ -26,7 +26,7 @@ export const Small = Template.bind({});
 Small.args = { size: 'small' };
 
 export const SmallSecondary = Template.bind({});
-SmallSecondary.args = { size: 'small', styleType: 'secondary' };
+SmallSecondary.args = { size: 'small', variant: 'secondary' };
 
 export const SmallDisabled = Template.bind({});
 SmallDisabled.args = { size: 'small', disabled: true };

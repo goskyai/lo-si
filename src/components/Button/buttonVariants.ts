@@ -2,9 +2,8 @@ import { variant } from 'styled-system';
 import { MainColorType } from '../../assets/theme/global';
 import { getColorKey } from '../../utils/styled/color';
 
-export const buttonStyleTypeVariant = (themeColor: MainColorType) =>
+export const buttonVariant = (themeColor: MainColorType) =>
   variant({
-    prop: 'styleType',
     variants: {
       primary: {
         color: 'white',

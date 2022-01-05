@@ -12,14 +12,14 @@ import { MainColorType } from '../../assets/theme/global';
 import { CommonButtonProps } from '../../assets/types/ElementTypes';
 import { getColorKey } from '../../utils/styled/color';
 import { exceptionList } from '../../utils/styled/exceptionList';
-import { buttonSizeVariant, buttonStyleTypeVariant } from './buttonVariant';
+import { buttonSizeVariant, buttonVariant } from './buttonVariants';
 
 export type ButtonSizeType = 'small' | 'normal';
-export type ButtonStyleType = 'primary' | 'secondary';
+export type ButtonVariant = 'primary' | 'secondary';
 
 interface StyledButtonProps extends CommonButtonProps {
   size: ButtonSizeType;
-  styleType: ButtonStyleType;
+  variant: ButtonVariant;
   themeColor: MainColorType;
   block: boolean;
 }
@@ -35,7 +35,7 @@ export interface ButtonProps
   /**
    * Primary 或 Secondary 按鈕
    */
-  styleType?: ButtonStyleType;
+  variant?: ButtonVariant;
   /**
    * 按鈕顏色
    */
@@ -71,7 +71,7 @@ const StyledButton = styled.button.withConfig({
     border-color: ${({ theme }) => theme.colors[getColorKey('grey', '200')]};
   }
 
-  ${({ themeColor }) => buttonStyleTypeVariant(themeColor)}
+  ${({ themeColor }) => buttonVariant(themeColor)}
   ${buttonSizeVariant()}
   ${compose(border, layout, position, space, typography)}
 `;
@@ -79,7 +79,7 @@ const StyledButton = styled.button.withConfig({
 
 export const Button: FunctionComponent<ButtonProps> = ({
   size = 'normal',
-  styleType = 'primary',
+  variant = 'primary',
   themeColor = 'gosky-blue',
   block = false,
   disabled = false,
@@ -89,7 +89,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
   return (
     <StyledButton
       size={size}
-      styleType={styleType}
+      variant={variant}
       themeColor={themeColor}
       block={block}
       disabled={disabled}
