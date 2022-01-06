@@ -39,7 +39,7 @@ const Template: Story = (args) => {
         <TabPanel
           tab={
             <Box display="flex" alignItems="center">
-              <Text>{tab.tab}</Text>
+              {tab.tab}
               <Icon icon={tab.icon} />
             </Box>
           }
