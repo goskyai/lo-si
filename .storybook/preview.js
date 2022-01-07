@@ -1,11 +1,8 @@
-import '../src/assets/css/gosky-icons.css';
-import 'normalize.css';
-
-import { withThemes } from '@react-theming/storybook-addon';
 import { addDecorator } from '@storybook/react';
+import 'normalize.css';
 import { ThemeSwitcherProvider } from 'react-css-theme-switcher';
 import { ThemeProvider } from 'styled-components';
-
+import '../src/assets/css/gosky-icons.css';
 import Theme, { GlobalStyle } from '../src/assets/theme/global';
 
 const themes = {
@@ -13,9 +10,8 @@ const themes = {
   light: `${process.env.PUBLIC_URL}/light-theme.css`,
 };
 
-addDecorator(withThemes(ThemeProvider, [Theme]));
 addDecorator((storyFn) => (
-  <>
+  <ThemeProvider theme={Theme}>
     <ThemeSwitcherProvider
       themeMap={themes}
       defaultTheme={'light'}
@@ -24,7 +20,7 @@ addDecorator((storyFn) => (
       <GlobalStyle theme={Theme} />
       {storyFn()}
     </ThemeSwitcherProvider>
-  </>
+  </ThemeProvider>
 ));
 
 export const parameters = {
