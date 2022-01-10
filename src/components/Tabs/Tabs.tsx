@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { Tabs as ATabs } from 'antd';
+import styled from 'styled-components';
 
 export const Tabs = styled(ATabs)`
   .ant-tabs-nav {

@@ -1,5 +1,4 @@
 import { Meta, Story } from '@storybook/react';
-
 import { TabPanel, Tabs } from '.';
 import { Box } from '../Box';
 import { Icon, IconTypes } from '../Icon';
@@ -40,13 +39,13 @@ const Template: Story = (args) => {
         <TabPanel
           tab={
             <Box display="flex" alignItems="center">
-              <Text mr="3">{tab.tab}</Text>
+              {tab.tab}
               <Icon icon={tab.icon} />
             </Box>
           }
           key={index}
         >
-          <Text fontSize="h1" fontWeight={500}>
+          <Text>
             {tab.label} <Icon icon={tab.icon} />
           </Text>
           <Text>

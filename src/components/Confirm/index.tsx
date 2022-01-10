@@ -5,6 +5,7 @@ import { ColorType } from '../../assets/theme/global';
 import { Button } from '../Button';
 import { Modal, ModalProps } from '../Modal';
 import { Text } from '../Text';
+import { Title } from '../Title';
 
 interface BodyStyleProps extends PaddingProps {}
 export interface ConfirmProps extends ModalProps {
@@ -48,15 +49,15 @@ export const Confirm: FunctionComponent<ConfirmProps> = ({
     <Modal hasCloseButton maxWidth="30rem" {...modalProps}>
       <StyledConfirmWrapper px="40" py="20" {...bodyStyle}>
         {title && (
-          <Text fontSize="h1" textColor={themeColor} fontWeight="600">
+          <Title
+            level={2}
+            strong
+            style={{ color: 'var(--blue-base)', marginBottom: '0.5rem' }}
+          >
             {title}
-          </Text>
+          </Title>
         )}
-        {content && (
-          <Text fontSize="body" textColor="grey-600" mt="6">
-            {content}
-          </Text>
-        )}
+        {content && <Text>{content}</Text>}
         {children}
         <StyledButtonsWrapper>
           {hasCancel && (

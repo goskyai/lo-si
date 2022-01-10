@@ -22,7 +22,7 @@
     "@storybook/addon-essentials": "^6.4.9",
     "@storybook/react": "^6.4.9",
     "@svgr/rollup": "^5.5.0",
-    "@types/faker": "^5.5.9",
+    "@types/faker": "5.5.9",
     "@types/lodash": "^4.14.176",
     "@types/matter-js": "^0.17.6",
     "@types/react": "^17.0.30",
@@ -38,7 +38,7 @@
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-storybook": "^0.5.5",
-    "faker": "^5.5.3",
+    "faker": "5.5.3",
     "gulp": "^4.0.2",
     "gulp-cached": "^1.1.1",
     "gulp-clean-css": "^4.3.0",
@@ -88,7 +88,7 @@
     "normalize.css": "^8.0.1"
   },
   "scripts": {
-    "storybook": "start-storybook -s ./public -p 6006 & yarn auto-update-theme",
+    "storybook": "npx gulp themes-compile && start-storybook -s ./public -p 6006 & npx gulp watch-themes-change",
     "build-storybook": "build-storybook",
     "lint": "eslint **/*.tsx --fix",
     "eslint": "eslint --max-warnings=0 --ext .ts,.tsx src -c .eslintrc.js",
@@ -96,8 +96,7 @@
     "github-action-eslint": "yarn ts && yarn eslint",
     "build": "yarn lint \n sh ./build.sh",
     "semantic-release": "semantic-release",
-    "prepare": "yarn husky install",
-    "auto-update-theme": "npx gulp auto-update-theme"
+    "prepare": "yarn husky install"
   },
   "eslintConfig": {
     "extends": [

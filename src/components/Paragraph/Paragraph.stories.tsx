@@ -1,20 +1,35 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import faker from 'faker';
-import { Text } from '.';
+import { Paragraph } from '.';
 
 export default {
-  title: 'Components/Text',
-  component: Text,
+  title: 'Components/Paragraph',
+  component: Paragraph,
   argTypes: {},
-} as ComponentMeta<typeof Text>;
+} as ComponentMeta<typeof Paragraph>;
 
-const Template: ComponentStory<typeof Text> = ({
-  children = 'Hello World!',
+const Template: ComponentStory<typeof Paragraph> = ({
+  children = faker.lorem.paragraphs(6),
   ...args
-}) => <Text {...args}>{children}</Text>;
+}) => <Paragraph {...args}>{children}</Paragraph>;
 
 export const Default = Template.bind({});
 Default.args = {};
+
+export const Ellipsis = Template.bind({});
+Ellipsis.args = {
+  ellipsis: {
+    rows: 3,
+  },
+};
+
+export const EllipsisExpandable = Template.bind({});
+EllipsisExpandable.args = {
+  ellipsis: {
+    rows: 3,
+    expandable: true,
+  },
+};
 
 export const Secondary = Template.bind({});
 Secondary.args = { type: 'secondary' };
@@ -57,6 +72,3 @@ Copyable.args = { copyable: true };
 
 export const Editable = Template.bind({});
 Editable.args = { editable: true };
-
-export const Ellipsis = Template.bind({});
-Ellipsis.args = { ellipsis: true, children: faker.lorem.paragraphs(20) };

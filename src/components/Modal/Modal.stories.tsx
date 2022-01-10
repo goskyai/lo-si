@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useState } from 'react';
-
 import { Modal } from '.';
 import { Text } from '../Text';
+import { Title } from '../Title';
 
 export default {
   title: 'Components/Modal',
@@ -20,9 +20,9 @@ const Template: ComponentStory<typeof Modal> = (args) => {
     <>
       <button onClick={() => setOpen(true)}>OPEN MODAL</button>
       <Modal {...args} open={open} onClose={() => setOpen(false)}>
-        <Text as="h2" fontSize="h2">
-          This is a basic modal
-        </Text>
+        <Title level={2} strong>
+          This is a basic modal.
+        </Title>
         <Text>You can put whatever you want.</Text>
       </Modal>
     </>

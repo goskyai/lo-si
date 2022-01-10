@@ -1,17 +1,30 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import faker from 'faker';
-import { Text } from '.';
+import { Title, TitleType } from '.';
+import { tupleNumber } from '../../utils/type/tuple';
 
 export default {
-  title: 'Components/Text',
-  component: Text,
+  title: 'Components/Title',
+  component: Title,
   argTypes: {},
-} as ComponentMeta<typeof Text>;
+} as ComponentMeta<TitleType>;
 
-const Template: ComponentStory<typeof Text> = ({
+const levels = tupleNumber(2, 3, 4, 5);
+
+const Template: ComponentStory<TitleType> = ({
   children = 'Hello World!',
   ...args
-}) => <Text {...args}>{children}</Text>;
+}) => {
+  return (
+    <>
+      {levels.map((val) => (
+        <Title level={val} {...args}>
+          {children}
+        </Title>
+      ))}
+    </>
+  );
+};
 
 export const Default = Template.bind({});
 Default.args = {};

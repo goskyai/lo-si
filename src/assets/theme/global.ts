@@ -119,7 +119,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors['grey-100']};
     color: ${({ theme }) => theme.colors['grey-600']};
     font-size: 16px;
-    line-height: 1.4;
+    line-height: 1.3;
     font-family: ${({ theme }) => theme.fontFamily.default};
     width: 100%;
     height: 100%;
