@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import { TabPanel, Tabs } from '.';
 import { Box } from '../Box';
-import { Icon, IconTypes } from '../Icon';
+import { Icon, IconType } from '../Icon';
 import { Text } from '../Text';
 
 export default {
@@ -13,7 +13,7 @@ export default {
 const tabs: {
   tab: string;
   label: string;
-  icon: IconTypes;
+  icon: IconType;
 }[] = [
   {
     tab: 'FIRST',

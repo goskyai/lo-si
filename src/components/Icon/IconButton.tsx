@@ -7,7 +7,7 @@ import {
   space,
   SpaceProps,
 } from 'styled-system';
-import { Icon, IconTypes } from '.';
+import { Icon, IconType } from '.';
 import { MainColorType, NeutralColorType } from '../../assets/theme/global';
 import { getColorKey } from '../../utils/styled/color';
 
@@ -45,7 +45,7 @@ export interface IconButtonProps
   extends SpaceProps,
     PositionProps,
     ButtonHTMLAttributes<HTMLButtonElement> {
-  icon: IconTypes;
+  icon: IconType;
   fontSize?: string;
   textColor?: MainColorType | NeutralColorType;
 }
