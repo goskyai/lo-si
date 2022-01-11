@@ -14,11 +14,24 @@ const Template: ComponentStory<typeof IconButton> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
+  icon: 'times',
+};
+
+export const Circle = Template.bind({});
+Circle.args = {
   icon: 'pen',
+  circle: true,
 };
 
 export const Contrast = Template.bind({});
 Contrast.args = {
-  icon: 'cog',
+  icon: 'trash',
   contrast: true,
+};
+
+export const ContrastCircle = Template.bind({});
+ContrastCircle.args = {
+  icon: 'arrow-circle-down',
+  contrast: true,
+  circle: true,
 };

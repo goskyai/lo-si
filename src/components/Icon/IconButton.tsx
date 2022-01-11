@@ -14,6 +14,10 @@ interface StyledIconButtonProps extends SpaceProps, PositionProps {
    * 按鈕一般狀態 -> Hover 的顏色是否高對比
    */
   contrast?: boolean;
+  /**
+   * 圓形外觀
+   */
+  circle?: boolean;
 }
 
 /* eslint-disable indent */
@@ -27,7 +31,7 @@ const StyledIconButton = styled.button<StyledIconButtonProps>`
   background: ${({ contrast, theme }) =>
     contrast ? theme.colors.transparent : theme.colors['grey-200']};
   border: none;
-  border-radius: 0.25rem;
+  border-radius: ${({ circle }) => (circle ? '50%' : '0.25rem')};
   padding: 0.375rem;
   cursor: pointer;
   transition: all 200ms ease;
