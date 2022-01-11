@@ -7,7 +7,9 @@ export default {
 } as ComponentMeta<typeof IconButton>;
 
 const Template: ComponentStory<typeof IconButton> = (args) => (
-  <IconButton {...args} />
+  <div>
+    <IconButton {...args} />
+  </div>
 );
 
 export const Default = Template.bind({});
@@ -15,8 +17,8 @@ Default.args = {
   icon: 'pen',
 };
 
-export const CustomColor = Template.bind({});
-CustomColor.args = {
-  icon: 'pen',
-  textColor: 'gosky-orange',
+export const Contrast = Template.bind({});
+Contrast.args = {
+  icon: 'cog',
+  contrast: true,
 };

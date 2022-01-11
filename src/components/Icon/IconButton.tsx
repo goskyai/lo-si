@@ -8,12 +8,12 @@ import {
   SpaceProps,
 } from 'styled-system';
 import { Icon, IconType } from '.';
-import { MainColorType, NeutralColorType } from '../../assets/theme/global';
-import { getColorKey } from '../../utils/styled/color';
 
-interface StyledIconButtonProps extends SpaceProps {
-  fontSize: string;
-  textColor: MainColorType | NeutralColorType;
+interface StyledIconButtonProps extends SpaceProps, PositionProps {
+  /**
+   * 按鈕一般狀態 -> Hover 的顏色是否高對比
+   */
+  contrast?: boolean;
 }
 
 /* eslint-disable indent */
@@ -21,43 +21,41 @@ const StyledIconButton = styled.button<StyledIconButtonProps>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  background: none;
+  font-size: 1rem;
+  color: ${({ contrast, theme }) =>
+    contrast ? theme.colors['grey-400'] : 'white'};
+  background: ${({ contrast, theme }) =>
+    contrast ? theme.colors.transparent : theme.colors['grey-200']};
   border: none;
-  padding: 0.15625rem;
+  border-radius: 0.25rem;
+  padding: 0.375rem;
   cursor: pointer;
-  width: fit-content;
-  ${compose(space, position)}
+  transition: all 200ms ease;
+  transition-property: color, background-color;
 
-  i {
-    font-size: ${({ fontSize }) => fontSize};
-    line-height: 1;
-    color: ${({ theme, textColor }) => theme.colors[textColor]};
-    transition: color 0.2s;
-  }
-  &:hover i {
-    color: ${({ theme, textColor }) =>
-      theme.colors[getColorKey(textColor, '600')]};
+  ${compose(space, position)};
+
+  :hover {
+    color: ${({ contrast, theme }) =>
+      contrast ? theme.colors['gosky-blue'] : 'white'};
+    background: ${({ contrast, theme }) =>
+      contrast ? theme.colors['grey-200'] : theme.colors['grey-400']};
   }
 `;
 /* eslint-enable indent */
 
 export interface IconButtonProps
-  extends SpaceProps,
-    PositionProps,
+  extends StyledIconButtonProps,
     ButtonHTMLAttributes<HTMLButtonElement> {
   icon: IconType;
-  fontSize?: string;
-  textColor?: MainColorType | NeutralColorType;
 }
 
 export const IconButton: FunctionComponent<IconButtonProps> = ({
   icon,
-  fontSize = '0.9375rem',
-  textColor = 'grey',
   ...props
 }) => {
   return (
-    <StyledIconButton fontSize={fontSize} textColor={textColor} {...props}>
+    <StyledIconButton {...props}>
       <Icon icon={icon} />
     </StyledIconButton>
   );
