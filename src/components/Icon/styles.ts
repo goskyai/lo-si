@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { rotate as rotateKeyframes } from '../../utils/animation';
 
 const rotateValue = (deg: number) => `rotate(${deg}deg)`;
 
@@ -8,13 +9,8 @@ export interface StyledIconProps {
 }
 
 export const StyledIcon = styled.i<StyledIconProps>`
-  @keyframes spin {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
   display: inline-block;
-  animation: ${({ spin }) => (spin ? '1s linear infinite spin' : 'none')};
+  animation: infinite linear 1s;
+  animation-name: ${({ spin }) => (spin ? rotateKeyframes : 'none')};
   transform: ${({ rotate }) => (rotate ? rotateValue(rotate) : 'none')};
 `;
