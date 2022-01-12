@@ -16,7 +16,6 @@ import {
   width as widthUtil,
   WidthProps,
 } from 'styled-system';
-
 import { useKeyPress } from '../../hooks/keyPress/useKeyPress';
 import { headshake } from '../../utils/animation';
 import { color, ColorProps } from '../../utils/styled/color';
@@ -164,8 +163,10 @@ export const Modal: FunctionComponent<ModalProps> = ({
                   <StyledCloseButtonWrapper onClick={onClose}>
                     <Icon
                       icon="circle-close-solid"
-                      textColor="grey"
-                      fontSize={40}
+                      style={{
+                        color: 'var(--grey-2)',
+                        fontSize: '2.5rem',
+                      }}
                     />
                   </StyledCloseButtonWrapper>
                 )}

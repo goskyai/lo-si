@@ -1,8 +1,8 @@
-import { Icon } from '../Icon';
 import { Collapse, CollapseProps } from 'antd';
 import * as CSS from 'csstype';
 import { FunctionComponent } from 'react';
 import styled from 'styled-components';
+import { Icon } from '../Icon';
 
 export interface AccordionProps extends CollapseProps {
   borderStyle?: CSS.Property.BorderStyle;
@@ -71,7 +71,13 @@ const StyledAccordion = styled(Collapse)<AccordionProps>`
 /* eslint-enable indent */
 
 const ExpandIcon: FunctionComponent<{ isActive: boolean }> = ({ isActive }) => {
-  return <Icon icon="chevron-down" fontSize={12} rotate={isActive ? 0 : -90} />;
+  return (
+    <Icon
+      icon="chevron-down"
+      rotate={isActive ? 0 : -90}
+      style={{ fontSize: '0.75rem' }}
+    />
+  );
 };
 
 export const Accordion: FunctionComponent<AccordionProps> = (props) => {

@@ -1,6 +1,7 @@
 node_modules
 lib
 yarn-error.log
+.DS_Store
 
 # Generate by build.sh
 src/index.ts
