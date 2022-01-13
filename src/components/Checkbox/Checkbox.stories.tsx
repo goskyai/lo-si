@@ -12,29 +12,25 @@ const Template: ComponentStory<typeof Checkbox> = (args) => (
 );
 
 export const Default = Template.bind({});
+Default.args = {};
 
-// export const Color = Template.bind({});
-// Color.args = {
-//   color: 'red',
-// };
+export const Checked = Template.bind({});
+Checked.args = {
+  defaultChecked: true,
+};
 
-// export const Checked = Template.bind({});
-// Checked.args = {
-//   defaultChecked: true,
-// };
+export const Color = Template.bind({});
+Color.args = {
+  color: 'red',
+};
 
-// export const Disabled = Template.bind({});
-// Disabled.args = {
-//   disabled: true,
-// };
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+};
 
-// export const CheckedDisabled = Template.bind({});
-// CheckedDisabled.args = {
-//   defaultChecked: true,
-//   disabled: true,
-// };
-
-// export const Size = Template.bind({});
-// Size.args = {
-//   fontSize: 'h2',
-// };
+export const CheckedDisabled = Template.bind({});
+CheckedDisabled.args = {
+  defaultChecked: true,
+  disabled: true,
+};
