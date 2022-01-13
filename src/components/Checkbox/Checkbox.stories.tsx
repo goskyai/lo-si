@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import { Checkbox } from '.';
 
 export default {
@@ -14,28 +13,28 @@ const Template: ComponentStory<typeof Checkbox> = (args) => (
 
 export const Default = Template.bind({});
 
-export const Color = Template.bind({});
-Color.args = {
-  color: 'red',
-};
+// export const Color = Template.bind({});
+// Color.args = {
+//   color: 'red',
+// };
 
-export const Checked = Template.bind({});
-Checked.args = {
-  defaultChecked: true,
-};
+// export const Checked = Template.bind({});
+// Checked.args = {
+//   defaultChecked: true,
+// };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
-};
+// export const Disabled = Template.bind({});
+// Disabled.args = {
+//   disabled: true,
+// };
 
-export const CheckedDisabled = Template.bind({});
-CheckedDisabled.args = {
-  defaultChecked: true,
-  disabled: true,
-};
+// export const CheckedDisabled = Template.bind({});
+// CheckedDisabled.args = {
+//   defaultChecked: true,
+//   disabled: true,
+// };
 
-export const Size = Template.bind({});
-Size.args = {
-  fontSize: 'h2',
-};
+// export const Size = Template.bind({});
+// Size.args = {
+//   fontSize: 'h2',
+// };
