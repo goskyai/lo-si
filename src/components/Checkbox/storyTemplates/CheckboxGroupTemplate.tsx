@@ -8,9 +8,10 @@ import { Checkbox, CheckboxGroup } from '..';
 const plainOptions = ['Apple', 'Pear', 'Orange'];
 const defaultCheckedList = ['Apple', 'Orange'];
 
-export const CheckboxGroupTemplate: ComponentStory<typeof Checkbox> = (
-  args,
-) => {
+export const CheckboxGroupTemplate: ComponentStory<typeof Checkbox> = ({
+  color = 'gosky-blue',
+  ...args
+}) => {
   const [checkedList, setCheckedList] =
     useState<Array<CheckboxValueType>>(defaultCheckedList);
   const [indeterminate, setIndeterminate] = useState<boolean>(true);
@@ -34,6 +35,7 @@ export const CheckboxGroupTemplate: ComponentStory<typeof Checkbox> = (
         indeterminate={indeterminate}
         onChange={onCheckAllChange}
         checked={checkAll}
+        color={color}
       >
         Check all
       </Checkbox>
