@@ -11,7 +11,6 @@ interface StyledCheckboxProps {
   color: MainColorType;
 }
 
-/* eslint-disable indent */
 const StyledCheckbox = styled(AntdCheckbox)<StyledCheckboxProps>`
   &.ant-checkbox-wrapper,
   & ~ .ant-checkbox-group .ant-checkbox-wrapper {
@@ -66,17 +65,16 @@ const StyledCheckbox = styled(AntdCheckbox)<StyledCheckboxProps>`
       /* Disabled */
       &.ant-checkbox-disabled {
         .ant-checkbox-inner {
-          background-color: ${({ theme }) => theme.colors['grey-100']};
-          border-color: ${({ theme }) => theme.colors['grey-300']} !important;
+          background-color: ${getColorValue('grey-100')};
+          border-color: ${getColorValue('grey-300')} !important;
         }
         &.ant-checkbox-checked .ant-checkbox-inner {
-          background-color: ${({ theme }) => theme.colors['grey-300']};
+          background-color: ${getColorValue('grey-300')};
         }
       }
     }
   }
 `;
-/* eslint-enable indent */
 
 export interface CheckboxProps extends AntdCheckboxProps {
   color?: MainColorType;

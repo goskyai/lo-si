@@ -14,7 +14,7 @@ import {
   typography,
   TypographyProps,
 } from 'styled-system';
-import { color, ColorProps } from '../../utils/styled/color';
+import { color, ColorProps, getColorValue } from '../../utils/styled/color';
 
 interface LinkStyleProps {
   disabled?: boolean;
@@ -32,7 +32,7 @@ const LinkStyle = css<LinkStyleProps>`
   display: inline;
   text-decoration: none;
   font-size: ${({ theme }) => theme.fontSizes.h4};
-  color: ${({ theme }) => theme.colors['grey-500']};
+  color: ${getColorValue('grey-500')};
   line-height: 1.4;
   margin: 0;
   border-bottom: 1px solid;

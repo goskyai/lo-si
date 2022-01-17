@@ -9,14 +9,13 @@ import {
 } from 'styled-system';
 import { Icon, IconType } from '.';
 import { MainColorType, NeutralColorType } from '../../assets/theme/global';
-import { getColorKey } from '../../utils/styled/color';
+import { getColorValue } from '../../utils/styled/color';
 
 interface StyledIconButtonProps extends SpaceProps {
   fontSize: string;
   textColor: MainColorType | NeutralColorType;
 }
 
-/* eslint-disable indent */
 const StyledIconButton = styled.button<StyledIconButtonProps>`
   display: inline-flex;
   justify-content: center;
@@ -31,15 +30,13 @@ const StyledIconButton = styled.button<StyledIconButtonProps>`
   i {
     font-size: ${({ fontSize }) => fontSize};
     line-height: 1;
-    color: ${({ theme, textColor }) => theme.colors[textColor]};
+    color: ${({ textColor }) => getColorValue(textColor)};
     transition: color 0.2s;
   }
   &:hover i {
-    color: ${({ theme, textColor }) =>
-      theme.colors[getColorKey(textColor, '600')]};
+    color: ${({ textColor }) => getColorValue(textColor, '600')};
   }
 `;
-/* eslint-enable indent */
 
 export interface IconButtonProps
   extends SpaceProps,

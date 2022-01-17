@@ -1,8 +1,8 @@
 import { variant } from 'styled-system';
-import { MainColorType } from '../../assets/theme/global';
+import { MainColorType, NeutralColorType } from '../../assets/theme/global';
 import { getColorValue } from '../../utils/styled/color';
 
-export const buttonVariant = (color: MainColorType) =>
+export const buttonVariant = (color: MainColorType | NeutralColorType) =>
   variant({
     variants: {
       primary: {
@@ -17,7 +17,7 @@ export const buttonVariant = (color: MainColorType) =>
           borderColor: getColorValue(color, '400'),
         },
         '&:disabled': {
-          backgroundColor: getColorValue('grey', '200'),
+          backgroundColor: getColorValue('grey-200'),
         },
       },
       secondary: {
@@ -32,7 +32,7 @@ export const buttonVariant = (color: MainColorType) =>
           borderColor: color,
         },
         '&:disabled': {
-          color: getColorValue('grey', '300'),
+          color: getColorValue('grey-300'),
         },
       },
     },
