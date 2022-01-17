@@ -9,15 +9,21 @@ import {
 import globalTheme, {
   ColorLevelType,
   ColorType,
-  MainColorType,
-  NeutralColorType,
 } from '../../assets/theme/global';
 
 export const getColorValue = (
-  base: MainColorType | NeutralColorType,
+  base: ColorType,
   level?: ColorLevelType,
 ): string => {
-  return globalTheme.colors[level ? (`${base}-${level}` as ColorType) : base];
+  if (!level) return globalTheme.colors[base];
+
+  const colorRegex = /(.+)-\d00$/;
+  const match = base.match(colorRegex);
+  if (match) {
+    // `base` includes level
+    return globalTheme.colors[`${match[1]}-${level}` as ColorType];
+  }
+  return globalTheme.colors[`${base}-${level}` as ColorType];
 };
 
 // Styled-system patch for the color prop fixing "Types of property 'color' are incompatible"
