@@ -5,7 +5,7 @@ import {
 import { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { MainColorType } from '../../assets/theme/global';
-import { getColorKey } from '../../utils/styled/color';
+import { getColorValue } from '../../utils/styled/color';
 
 interface StyledCheckboxProps {
   color: MainColorType;
@@ -20,8 +20,7 @@ const StyledCheckbox = styled(AntdCheckbox)<StyledCheckboxProps>`
 
     /* Text hover */
     &:hover .ant-checkbox-inner {
-      border-color: ${({ theme, color }) =>
-        theme.colors[getColorKey(color, '500')]} !important;
+      border-color: ${({ color }) => getColorValue(color, '500')} !important;
     }
 
     .ant-checkbox {
@@ -29,10 +28,8 @@ const StyledCheckbox = styled(AntdCheckbox)<StyledCheckboxProps>`
 
       /* Default checkbox style */
       .ant-checkbox-inner {
-        background-color: ${({ theme, color }) =>
-          theme.colors[getColorKey(color, '200')]};
-        border-color: ${({ theme, color }) =>
-          theme.colors[getColorKey(color, '400')]};
+        background-color: ${({ color }) => getColorValue(color, '200')};
+        border-color: ${({ color }) => getColorValue(color, '400')};
 
         /* Check icon */
         &:after {
@@ -51,10 +48,8 @@ const StyledCheckbox = styled(AntdCheckbox)<StyledCheckboxProps>`
       /* Checked style */
       &.ant-checkbox-checked {
         .ant-checkbox-inner {
-          background-color: ${({ theme, color }) =>
-            theme.colors[getColorKey(color, '500')]};
-          border-color: ${({ theme, color }) =>
-            theme.colors[getColorKey(color, '500')]};
+          background-color: ${({ color }) => getColorValue(color, '500')};
+          border-color: ${({ color }) => getColorValue(color, '500')};
 
           /* Check icon */
           &:after {
@@ -64,8 +59,7 @@ const StyledCheckbox = styled(AntdCheckbox)<StyledCheckboxProps>`
 
         /* Water wave animation */
         &:after {
-          border-color: ${({ theme, color }) =>
-            theme.colors[getColorKey(color, '500')]};
+          border-color: ${({ color }) => getColorValue(color, '500')};
         }
       }
 
