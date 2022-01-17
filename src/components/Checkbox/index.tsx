@@ -13,66 +13,71 @@ interface StyledCheckboxProps {
 
 /* eslint-disable indent */
 const StyledCheckbox = styled(AntdCheckbox)<StyledCheckboxProps>`
-  && {
+  &&.ant-checkbox-wrapper,
+  & + .ant-checkbox-group .ant-checkbox-wrapper {
     align-items: center;
     line-height: 1;
-  }
 
-  &.ant-checkbox-wrapper:hover .ant-checkbox-inner {
-    border-color: ${({ theme, color }) =>
-      theme.colors[getColorKey(color, '500')]} !important;
-  }
-
-  .ant-checkbox {
-    top: 0;
-
-    .ant-checkbox-input:focus + .ant-checkbox-inner,
-    .ant-checkbox-inner {
+    /* Text hover */
+    &:hover .ant-checkbox-inner {
       border-color: ${({ theme, color }) =>
-        theme.colors[getColorKey(color, '400')]};
+        theme.colors[getColorKey(color, '500')]} !important;
     }
 
-    .ant-checkbox-inner {
-      background-color: ${({ theme, color }) =>
-        theme.colors[getColorKey(color, '200')]};
+    .ant-checkbox {
+      top: 0;
 
-      &:after {
-        top: 50%;
-        left: 50%;
-        font-family: 'GoSky-icon';
-        font-size: 0.875rem;
-        color: white;
-        border: none;
-        transform: scale(1) translate(-50%, -50%);
-        content: '\\e903';
-      }
-    }
-
-    &.ant-checkbox-checked {
+      /* Default checkbox style */
       .ant-checkbox-inner {
         background-color: ${({ theme, color }) =>
-          theme.colors[getColorKey(color, '500')]};
-        border-color: rgba(0, 0, 0, 0);
-      }
-
-      .ant-checkbox-input:focus + .ant-checkbox-inner,
-      &:after {
+          theme.colors[getColorKey(color, '200')]};
         border-color: ${({ theme, color }) =>
-          theme.colors[getColorKey(color, '500')]};
+          theme.colors[getColorKey(color, '400')]};
+
+        /* Check icon */
+        &:after {
+          top: 50%;
+          left: 50%;
+          font-family: 'GoSky-icon';
+          font-size: 0.875rem;
+          color: white;
+          border: none;
+          transform: scale(1) translate(-50%, -50%);
+          content: '\\e903';
+          visibility: hidden;
+        }
       }
 
-      &:after {
-        border-width: 0.125rem;
-      }
-    }
+      /* Checked style */
+      &.ant-checkbox-checked {
+        .ant-checkbox-inner {
+          background-color: ${({ theme, color }) =>
+            theme.colors[getColorKey(color, '500')]};
+          border-color: ${({ theme, color }) =>
+            theme.colors[getColorKey(color, '500')]};
 
-    &.ant-checkbox-disabled {
-      .ant-checkbox-inner {
-        background-color: ${({ theme }) => theme.colors['grey-100']};
-        border-color: ${({ theme }) => theme.colors['grey-300']} !important;
+          /* Check icon */
+          &:after {
+            visibility: visible;
+          }
+        }
+
+        /* Water wave animation */
+        &:after {
+          border-color: ${({ theme, color }) =>
+            theme.colors[getColorKey(color, '500')]};
+        }
       }
-      &.ant-checkbox-checked .ant-checkbox-inner {
-        background-color: ${({ theme }) => theme.colors['grey-300']};
+
+      /* Disabled */
+      &.ant-checkbox-disabled {
+        .ant-checkbox-inner {
+          background-color: ${({ theme }) => theme.colors['grey-100']};
+          border-color: ${({ theme }) => theme.colors['grey-300']} !important;
+        }
+        &.ant-checkbox-checked .ant-checkbox-inner {
+          background-color: ${({ theme }) => theme.colors['grey-300']};
+        }
       }
     }
   }
@@ -89,3 +94,6 @@ export const Checkbox: FunctionComponent<CheckboxProps> = ({
 }) => {
   return <StyledCheckbox color={color} {...props} />;
 };
+
+export const CheckboxGroup = AntdCheckbox.Group;
+export const CheckboxGroupProps = typeof CheckboxGroup;
