@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useState } from 'react';
-
 import { Confirm } from '.';
 
 export default {
@@ -28,5 +27,6 @@ Normal.args = {
   cancelLabel: '取消',
   confirmLabel: '確認',
   persistent: true,
+  confirmButtonColor: 'red',
   onConfirm: () => alert('Confirm!'),
 };

@@ -1,8 +1,7 @@
 import { FunctionComponent, ReactNode } from 'react';
 import styled from 'styled-components';
 import { padding, PaddingProps } from 'styled-system';
-import { ColorType } from '../../assets/theme/global';
-import { Button } from '../Button';
+import { Button, ButtonProps } from '../Button';
 import { Modal, ModalProps } from '../Modal';
 import { Text } from '../Text';
 import { Title } from '../Title';
@@ -15,7 +14,7 @@ export interface ConfirmProps extends ModalProps {
   onCancel?: () => unknown;
   cancelLabel?: string;
   confirmLabel?: string;
-  themeColor?: ColorType;
+  confirmButtonColor?: ButtonProps['color'];
   hasCancel?: boolean;
   bodyStyle?: BodyStyleProps;
 }
@@ -37,7 +36,7 @@ export const Confirm: FunctionComponent<ConfirmProps> = ({
   children,
   cancelLabel = '',
   confirmLabel = '',
-  themeColor = 'blue',
+  confirmButtonColor = 'gosky-blue',
   hasCancel = true,
   bodyStyle,
   onCancel,
@@ -62,14 +61,14 @@ export const Confirm: FunctionComponent<ConfirmProps> = ({
         <StyledButtonsWrapper>
           {hasCancel && (
             <Button
-              color={themeColor}
+              color="grey"
               variant="secondary"
               onClick={onCancel || onClose}
             >
               {cancelLabel || 'Cancel'}
             </Button>
           )}
-          <Button color={themeColor} onClick={onConfirm}>
+          <Button color={confirmButtonColor} onClick={onConfirm}>
             {confirmLabel || 'Confirm'}
           </Button>
         </StyledButtonsWrapper>

@@ -8,9 +8,9 @@ import {
   space,
   typography,
 } from 'styled-system';
-import { MainColorType } from '../../assets/theme/global';
+import { MainColorType, NeutralColorType } from '../../assets/theme/global';
 import { CommonButtonProps } from '../../assets/types/ElementTypes';
-import { getColorKey } from '../../utils/styled/color';
+import { getColorValue } from '../../utils/styled/color';
 import { exceptionList } from '../../utils/styled/exceptionList';
 import { buttonSizeVariant, buttonVariant } from './buttonVariants';
 
@@ -20,7 +20,7 @@ export type ButtonVariant = 'primary' | 'secondary';
 interface StyledButtonProps extends CommonButtonProps {
   size: ButtonSizeType;
   variant: ButtonVariant;
-  themeColor: MainColorType;
+  color: MainColorType | NeutralColorType;
   block: boolean;
 }
 
@@ -39,14 +39,13 @@ export interface ButtonProps
   /**
    * 按鈕顏色
    */
-  themeColor?: MainColorType;
+  color?: MainColorType | NeutralColorType;
   /**
    * 切換按鈕 display 為 block，預設為 inline
    */
   block?: boolean;
 }
 
-/* eslint-disable indent */
 const StyledButton = styled.button.withConfig({
   shouldForwardProp: (prop, validator) =>
     !exceptionList.includes(prop) && validator(prop),
@@ -62,20 +61,18 @@ const StyledButton = styled.button.withConfig({
   width: ${({ block }) => (block ? '100%' : 'auto')};
 
   &:hover {
-    border-color: ${({ theme, themeColor }) =>
-      theme.colors[getColorKey(themeColor, '300')]};
+    border-color: ${({ color }) => getColorValue(color, '300')};
   }
 
   &:disabled {
     cursor: not-allowed;
-    border-color: ${({ theme }) => theme.colors[getColorKey('grey', '200')]};
+    border-color: ${getColorValue('grey-200')};
   }
 
-  ${({ themeColor }) => buttonVariant(themeColor)}
+  ${({ color }) => buttonVariant(color)}
   ${buttonSizeVariant()}
   ${compose(border, layout, position, space, typography)}
 `;
-/* eslint-enable indent */
 
 export const Button: FunctionComponent<ButtonProps> = ({
   children,
@@ -87,7 +84,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
 Button.defaultProps = {
   size: 'normal',
   variant: 'primary',
-  themeColor: 'gosky-blue',
+  color: 'gosky-blue',
   block: false,
   disabled: false,
 };

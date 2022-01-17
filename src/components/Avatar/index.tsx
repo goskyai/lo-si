@@ -1,6 +1,7 @@
 import CSS from 'csstype';
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
+import { getColorValue } from '../../utils/styled/color';
 
 export interface AvatarProps {
   img?: string;
@@ -12,7 +13,7 @@ const StyledContainer = styled.div`
   width: 2.5rem;
   height: 2.5rem;
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors['gosky-blue']};
+  background-color: ${getColorValue('gosky-blue')};
   object-fit: cover;
   color: #fff;
   font-size: ${({ theme }) => theme.fontSizes.h2};
