@@ -13,8 +13,8 @@ interface StyledCheckboxProps {
 
 /* eslint-disable indent */
 const StyledCheckbox = styled(AntdCheckbox)<StyledCheckboxProps>`
-  &&.ant-checkbox-wrapper,
-  & + .ant-checkbox-group .ant-checkbox-wrapper {
+  &.ant-checkbox-wrapper,
+  & ~ .ant-checkbox-group .ant-checkbox-wrapper {
     align-items: center;
     line-height: 1;
 
