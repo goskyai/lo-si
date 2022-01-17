@@ -116,8 +116,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html, body {
-    background-color: ${({ theme }) => theme.colors['grey-100']};
-    color: ${({ theme }) => theme.colors['grey-600']};
+    background-color: ${themeColors['grey-100']};
+    color: ${themeColors['grey-600']};
     font-size: 16px;
     line-height: 1.3;
     font-family: ${({ theme }) => theme.fontFamily.default};
@@ -133,7 +133,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: ${({ theme }) => theme.colors['grey-500']};
+    color: ${themeColors['grey-500']};
   }
 `;
 
