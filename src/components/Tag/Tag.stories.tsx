@@ -1,9 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
-import { Tag } from '.';
+import { Icon } from '../Icon';
+import { Tag } from './Tag';
 
 export default {
-  title: 'Components/Tag',
+  title: 'Components/Tag/Regular',
   component: Tag,
   parameters: {
     layout: 'centered',
@@ -16,8 +16,23 @@ const Template: ComponentStory<typeof Tag> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  title: 'Hello',
-  opacity: 1,
-  bg: 'green-300',
-  textColor: 'green',
+  color: 'gosky-blue',
+};
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  color: 'gosky-blue',
+  icon: <Icon icon="calendar" />,
+};
+
+export const Closeable = Template.bind({});
+Closeable.args = {
+  color: 'gosky-blue',
+  closable: true,
+};
+
+export const Visibility = Template.bind({});
+Visibility.args = {
+  color: 'gosky-blue',
+  visible: false,
 };
