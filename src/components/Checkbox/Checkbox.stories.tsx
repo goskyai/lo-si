@@ -1,4 +1,5 @@
 import { ComponentMeta } from '@storybook/react';
+import { withDesign } from 'storybook-addon-designs';
 import { Checkbox } from '.';
 import { CheckboxGroupTemplate, CheckboxTemplate } from './storyTemplates';
 
@@ -6,6 +7,13 @@ export default {
   title: 'Components/Inputs/Checkbox',
   component: Checkbox,
   argTypes: {},
+  decorators: [withDesign],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/og8KJ9f4UINpdYPb3slesI/GoSky-Library-(Lo-si)?node-id=549%3A1240',
+    },
+  },
 } as ComponentMeta<typeof Checkbox>;
 
 export const Default = CheckboxTemplate.bind({});
