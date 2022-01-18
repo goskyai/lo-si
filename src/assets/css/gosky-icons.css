@@ -77,3 +77,6 @@
 .gsif-circle-close-solid:before {
   content: '\e910';
 }
+.gsif-close:before {
+  content: '\e911';
+}
