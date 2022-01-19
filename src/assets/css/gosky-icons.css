@@ -77,3 +77,21 @@
 .gsif-circle-close-solid:before {
   content: '\e910';
 }
+.gsif-close:before {
+  content: '\e911';
+}
+.gsif-arrow-left:before {
+  content: '\e912';
+}
+.gsif-arrow-right:before {
+  content: '\e913';
+}
+.gsif-chevron-up:before {
+  content: '\e914';
+}
+.gsif-chevron-left:before {
+  content: '\e915';
+}
+.gsif-chevron-right:before {
+  content: '\e916';
+}
