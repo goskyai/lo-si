@@ -19,7 +19,8 @@ export type IconType =
   | 'circle-warning'
   | 'calendar'
   | 'info'
-  | 'circle-close-solid';
+  | 'circle-close-solid'
+  | 'close';
 
 type AntdIconType = ComponentProps<typeof AntdIcon>;
 
