@@ -5,5 +5,5 @@ module.exports = {
     '../stories/**/*.stories.mdx',
     '../src/components/**/*.stories.tsx',
   ],
-  addons: ['@storybook/addon-essentials'],
+  addons: ['storybook-addon-designs', '@storybook/addon-essentials'],
 };
