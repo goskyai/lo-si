@@ -8,6 +8,7 @@ import {
   SpaceProps,
 } from 'styled-system';
 import { Icon, IconType } from '.';
+import { getColorValue } from '../../utils/styled/color';
 
 interface StyledIconButtonProps extends SpaceProps, PositionProps {
   /**
@@ -20,7 +21,6 @@ interface StyledIconButtonProps extends SpaceProps, PositionProps {
   circle?: boolean;
 }
 
-/* eslint-disable indent */
 const StyledIconButton = styled.button<StyledIconButtonProps>`
   display: inline-flex;
   justify-content: center;
@@ -40,13 +40,12 @@ const StyledIconButton = styled.button<StyledIconButtonProps>`
   ${compose(space, position)};
 
   :hover {
-    color: ${({ contrast, theme }) =>
-      contrast ? theme.colors['gosky-blue'] : 'white'};
-    background: ${({ contrast, theme }) =>
-      contrast ? theme.colors['grey-200'] : theme.colors['grey-400']};
+    color: ${({ contrast }) =>
+      contrast ? getColorValue('gosky-blue') : 'white'};
+    background: ${({ contrast }) =>
+      getColorValue('grey', contrast ? '200' : '400')};
   }
 `;
-/* eslint-enable indent */
 
 export interface IconButtonProps
   extends StyledIconButtonProps,

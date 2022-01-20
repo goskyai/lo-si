@@ -18,7 +18,7 @@ import {
 } from 'styled-system';
 import { useKeyPress } from '../../hooks/keyPress/useKeyPress';
 import { headshake } from '../../utils/animation';
-import { color, ColorProps } from '../../utils/styled/color';
+import { color, ColorProps, getColorValue } from '../../utils/styled/color';
 import { exceptionList } from '../../utils/styled/exceptionList';
 import { IconButton } from '../Icon';
 
@@ -78,7 +78,7 @@ const StyledContainer = styled.div.withConfig<
   position: relative;
   box-sizing: border-box;
   border-radius: ${({ theme }) => theme.radii[5]};
-  border: 1px solid ${({ theme }) => theme.colors['grey-400']};
+  border: 1px solid ${getColorValue('grey-400')};
   width: 100%;
   animation: ${({ shake }) => shake && headshake} 1s;
   ${compose(color, widthUtil, padding, maxWidthUtil, textAlignUtil)}

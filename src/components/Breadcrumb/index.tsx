@@ -6,14 +6,15 @@ import {
   LinkProps as RouterLinkProps,
 } from 'react-router-dom';
 import styled from 'styled-components';
+import { getColorValue } from '../../utils/styled/color';
 import { Text } from '../Text';
 
 const StyledLink = styled(RouterLink)<RouterLinkProps>`
   text-decoration: none;
-  color: ${({ theme }) => theme.colors['grey-600']};
+  color: ${getColorValue('grey')};
   transition: color 0.2s ease;
   &:hover {
-    color: ${({ theme }) => theme.colors['grey-500']};
+    color: ${getColorValue('grey-500')};
   }
 `;
 

@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { withDesign } from 'storybook-addon-designs';
 import { Button } from '.';
 import { Box } from '../Box';
 
@@ -6,6 +7,13 @@ export default {
   title: 'Components/Inputs/Button',
   component: Button,
   argTypes: {},
+  decorators: [withDesign],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/og8KJ9f4UINpdYPb3slesI/GoSky-Library-(Lo-si)?node-id=626%3A1446',
+    },
+  },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => (
@@ -35,4 +43,4 @@ export const Block = Template.bind({});
 Block.args = { block: true };
 
 export const Color = Template.bind({});
-Color.args = { themeColor: 'gosky-orange' };
+Color.args = { color: 'gosky-orange' };

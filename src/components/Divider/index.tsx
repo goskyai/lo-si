@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { BorderStyleProps, margin, MarginProps } from 'styled-system';
-
+import { getColorValue } from '../../utils/styled/color';
 import { exceptionList } from '../../utils/styled/exceptionList';
 
 interface AttributeProps {
@@ -31,13 +31,13 @@ export const Divider = styled.hr
   border-left: 0;
   border-top-width: ${({ borderWidth }) => borderWidth || '1px'};
   border-top-style: ${({ borderStyle }) => borderStyle || 'solid'};
-  border-top-color: ${({ theme, color }) => color || theme.colors['grey-400']};
+  border-top-color: ${({ color }) => color || getColorValue('grey-400')};
   text-align: center;
 
   &[label] {
     &::after {
       content: attr(label);
-      color: ${({ theme }) => theme.colors['grey-400']};
+      color: ${getColorValue('grey-400')};
       background: #fff;
       display: inline-block;
       margin: 0 1rem;

@@ -1,38 +1,38 @@
 import { variant } from 'styled-system';
-import { MainColorType } from '../../assets/theme/global';
-import { getColorKey } from '../../utils/styled/color';
+import { MainColorType, NeutralColorType } from '../../assets/theme/global';
+import { getColorValue } from '../../utils/styled/color';
 
-export const buttonVariant = (themeColor: MainColorType) =>
+export const buttonVariant = (color: MainColorType | NeutralColorType) =>
   variant({
     variants: {
       primary: {
         color: 'white',
-        backgroundColor: themeColor,
-        borderColor: themeColor,
+        backgroundColor: color,
+        borderColor: color,
         '&:hover': {
-          backgroundColor: getColorKey(themeColor, '300'),
+          backgroundColor: getColorValue(color, '300'),
         },
         '&:active': {
-          backgroundColor: getColorKey(themeColor, '400'),
-          borderColor: getColorKey(themeColor, '400'),
+          backgroundColor: getColorValue(color, '400'),
+          borderColor: getColorValue(color, '400'),
         },
         '&:disabled': {
-          backgroundColor: getColorKey('grey', '200'),
+          backgroundColor: getColorValue('grey-200'),
         },
       },
       secondary: {
         backgroundColor: 'white',
-        color: getColorKey(themeColor, '400'),
-        borderColor: getColorKey(themeColor, '400'),
+        color: getColorValue(color, '400'),
+        borderColor: getColorValue(color, '400'),
         '&:hover': {
-          color: getColorKey(themeColor, '300'),
+          color: getColorValue(color, '300'),
         },
         '&:active': {
-          color: themeColor,
-          borderColor: themeColor,
+          color: color,
+          borderColor: color,
         },
         '&:disabled': {
-          color: getColorKey('grey', '300'),
+          color: getColorValue('grey-300'),
         },
       },
     },

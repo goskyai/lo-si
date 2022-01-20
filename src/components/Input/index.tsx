@@ -16,7 +16,7 @@ import {
 } from 'styled-system';
 import { ColorType } from '../../assets/theme/global';
 import { CommonTextFieldProps } from '../../assets/types/ElementTypes';
-import { color as colorUtil } from '../../utils/styled/color';
+import { color as colorUtil, getColorValue } from '../../utils/styled/color';
 import { exceptionList } from '../../utils/styled/exceptionList';
 
 export interface InputProps
@@ -51,7 +51,7 @@ const StyledWrapper = styled.div.withConfig({
   cursor: ${({ disabled }) => (disabled ? 'not-allowed	' : 'default')};
   &:hover,
   &:focus-within {
-    border-color: ${({ theme, hoverColor }) => theme.colors[hoverColor]};
+    border-color: ${({ hoverColor }) => getColorValue(hoverColor)};
   }
 `;
 
@@ -59,7 +59,7 @@ const StyledPrefix = styled.div<BorderProps & SpaceProps>`
   display: flex;
   align-items: center;
   font-weight: 300;
-  color: ${({ theme }) => theme.colors.grey};
+  color: ${getColorValue('grey')};
   ${compose(border, space)}
 `;
 
@@ -81,13 +81,13 @@ const StyledInput = styled.input<TypographyProps & SpaceProps>`
   color: black;
   ${compose(typography, space)}
   &::placeholder {
-    color: ${({ theme }) => theme.colors.grey};
+    color: ${getColorValue('grey')};
     font-weight: 300;
   }
   &:disabled {
     cursor: not-allowed;
-    color: ${({ theme }) => theme.colors.grey};
-    -webkit-text-fill-color: ${({ theme }) => theme.colors.grey};
+    color: ${getColorValue('grey')};
+    -webkit-text-fill-color: ${getColorValue('grey')};
   }
 `;
 

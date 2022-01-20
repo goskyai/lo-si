@@ -1,6 +1,7 @@
 import { forwardRef, FunctionComponent, InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { margin, MarginProps } from 'styled-system';
+import { getColorValue } from '../../utils/styled/color';
 
 const StyledRadio = styled.label<MarginProps>`
   ${margin}
@@ -14,16 +15,16 @@ const StyledRadio = styled.label<MarginProps>`
     justify-content: center;
     height: 1.25rem;
     width: 1.25rem;
-    background: ${({ theme }) => theme.colors['gosky-blue-200']};
+    background: ${getColorValue('gosky-blue-200')};
     border-radius: 50%;
-    border: 1px solid ${({ theme }) => theme.colors['gosky-blue']};
+    border: 1px solid ${getColorValue('gosky-blue')};
     cursor: pointer;
 
     &::after {
       width: 0.875rem;
       height: 0.875rem;
       border-radius: 50%;
-      background: ${({ theme }) => theme.colors['gosky-blue']};
+      background: ${getColorValue('gosky-blue')};
       display: block;
       content: '';
       opacity: 0;
@@ -41,11 +42,11 @@ const StyledRadio = styled.label<MarginProps>`
     }
     &:disabled {
       & ~ span {
-        background-color: ${({ theme }) => theme.colors['grey-400']};
-        border-color: ${({ theme }) => theme.colors['grey-500']};
+        background-color: ${getColorValue('grey-400')};
+        border-color: ${getColorValue('grey-500')};
 
         &::after {
-          background-color: ${({ theme }) => theme.colors['grey-500']};
+          background-color: ${getColorValue('grey-500')};
         }
       }
     }

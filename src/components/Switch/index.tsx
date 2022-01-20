@@ -1,5 +1,6 @@
 import { forwardRef, FunctionComponent, InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
+import { getColorValue } from '../../utils/styled/color';
 
 const StyledSwitch = styled.label`
   display: flex;
@@ -11,7 +12,7 @@ const StyledCheckbox = styled.input`
   display: none;
 
   &:checked ~ .switch-track {
-    background: ${({ theme }) => theme.colors['gosky-blue']};
+    background: ${getColorValue('gosky-blue')};
 
     &:after {
       left: 1.125rem;
@@ -30,7 +31,7 @@ const StyledTrack = styled.div`
   position: relative;
   height: 1.25rem;
   width: 2.25rem;
-  background: ${({ theme }) => theme.colors.grey};
+  background: ${getColorValue('grey')};
   border-radius: 0.625rem;
   cursor: pointer;
   transition: all 0.2s ease;
