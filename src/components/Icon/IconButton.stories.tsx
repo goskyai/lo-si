@@ -31,7 +31,7 @@ Contrast.args = {
 
 export const ContrastCircle = Template.bind({});
 ContrastCircle.args = {
-  icon: 'arrow-circle-down',
+  icon: 'arrow-circle-bottom',
   contrast: true,
   circle: true,
 };
