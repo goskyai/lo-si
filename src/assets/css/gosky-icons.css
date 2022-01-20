@@ -32,31 +32,40 @@
 .gsif-times:before {
   content: '\e91d';
 }
-.gsif-arrow-left:before {
+.gsif-arrow-top:before {
   content: '\e922';
 }
 .gsif-arrow-right:before {
+  content: '\e926';
+}
+.gsif-arrow-bottom:before {
+  content: '\e927';
+}
+.gsif-arrow-left:before {
   content: '\e90c';
 }
-.gsif-chevron-left:before {
+.gsif-chevron-top:before {
   content: '\e91b';
 }
 .gsif-chevron-right:before {
+  content: '\e91c';
+}
+.gsif-chevron-bottom:before {
+  content: '\e928';
+}
+.gsif-chevron-left:before {
   content: '\e90b';
 }
-.gsif-sort:before {
-  content: '\e905';
-}
-.gsif-caret-down:before {
-  content: '\e900';
-}
-.gsif-triangle:before {
-  content: '\e91e';
-}
-.gsif-arrow-circle-down:before {
+.gsif-arrow-circle-top:before {
   content: '\e911';
 }
-.gsif-arrow-circle-up:before {
+.gsif-arrow-circle-right:before {
+  content: '\e929';
+}
+.gsif-arrow-circle-bottom:before {
+  content: '\e92a';
+}
+.gsif-arrow-circle-left:before {
   content: '\e912';
 }
 .gsif-plus-circle:before {
@@ -73,6 +82,15 @@
 }
 .gsif-facebook-circle:before {
   content: '\e920';
+}
+.gsif-sort:before {
+  content: '\e905';
+}
+.gsif-caret-down:before {
+  content: '\e900';
+}
+.gsif-triangle:before {
+  content: '\e91e';
 }
 .gsif-tag:before {
   content: '\e925';
