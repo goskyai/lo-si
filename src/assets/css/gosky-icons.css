@@ -26,56 +26,125 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.gsif-exit:before {
-  content: '\e90f';
+.gsif-check:before {
+  content: '\e903';
 }
-.gsif-copy:before {
-  content: '\e90e';
+.gsif-times:before {
+  content: '\e91d';
 }
-.gsif-chevron-down:before {
+.gsif-arrow-top:before {
+  content: '\e922';
+}
+.gsif-arrow-right:before {
+  content: '\e926';
+}
+.gsif-arrow-bottom:before {
+  content: '\e927';
+}
+.gsif-arrow-left:before {
+  content: '\e90c';
+}
+.gsif-chevron-top:before {
+  content: '\e91b';
+}
+.gsif-chevron-right:before {
+  content: '\e91c';
+}
+.gsif-chevron-bottom:before {
+  content: '\e928';
+}
+.gsif-chevron-left:before {
   content: '\e90b';
 }
-.gsif-plane:before {
-  content: '\e909';
+.gsif-arrow-circle-top:before {
+  content: '\e911';
+}
+.gsif-arrow-circle-right:before {
+  content: '\e929';
+}
+.gsif-arrow-circle-bottom:before {
+  content: '\e92a';
+}
+.gsif-arrow-circle-left:before {
+  content: '\e912';
+}
+.gsif-plus-circle:before {
+  content: '\e924';
+}
+.gsif-minus-circle:before {
+  content: '\e90f';
+}
+.gsif-star-circle:before {
+  content: '\e910';
+}
+.gsif-exclamation-triangle:before {
+  content: '\e91a';
+}
+.gsif-facebook-circle:before {
+  content: '\e920';
+}
+.gsif-sort:before {
+  content: '\e905';
+}
+.gsif-caret-down:before {
+  content: '\e900';
+}
+.gsif-triangle:before {
+  content: '\e91e';
+}
+.gsif-tag:before {
+  content: '\e925';
+}
+.gsif-dashboard:before {
+  content: '\e90d';
+}
+.gsif-cog:before {
+  content: '\e918';
+}
+.gsif-bullhorn:before {
+  content: '\e91f';
 }
 .gsif-store:before {
   content: '\e90a';
 }
+.gsif-users:before {
+  content: '\e913';
+}
+.gsif-redo:before {
+  content: '\e916';
+}
+.gsif-link:before {
+  content: '\e921';
+}
+.gsif-question-circle:before {
+  content: '\e914';
+}
+.gsif-search:before {
+  content: '\e917';
+}
+.gsif-cloud-upload:before {
+  content: '\e919';
+}
+.gsif-gift:before {
+  content: '\e915';
+}
+.gsif-receipt:before {
+  content: '\e923';
+}
+.gsif-plane:before {
+  content: '\e909';
+}
 .gsif-ellipsis-h:before {
   content: '\e908';
+}
+.gsif-copy:before {
+  content: '\e90e';
 }
 .gsif-pen:before {
   content: '\e906';
 }
 .gsif-trash:before {
   content: '\e907';
-}
-.gsif-select:before {
-  content: '\e905';
-}
-.gsif-circle-error-solid:before {
-  content: '\e904';
-}
-.gsif-check:before {
-  content: '\e903';
-}
-.gsif-circle-error:before {
-  content: '\e900';
-}
-.gsif-circle-success:before {
-  content: '\e901';
-}
-.gsif-circle-warning:before {
-  content: '\e902';
-}
-.gsif-calendar:before {
-  content: '\e90c';
-}
-.gsif-info:before {
-  content: '\e90d';
-}
-.gsif-circle-close-solid:before {
-  content: '\e910';
 }
 .gsif-close:before {
   content: '\e911';

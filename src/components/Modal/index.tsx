@@ -20,7 +20,7 @@ import { useKeyPress } from '../../hooks/keyPress/useKeyPress';
 import { headshake } from '../../utils/animation';
 import { color, ColorProps, getColorValue } from '../../utils/styled/color';
 import { exceptionList } from '../../utils/styled/exceptionList';
-import { Icon } from '../Icon';
+import { IconButton } from '../Icon';
 
 export interface ModalProps
   extends TextAlignProps,
@@ -82,14 +82,6 @@ const StyledContainer = styled.div.withConfig<
   width: 100%;
   animation: ${({ shake }) => shake && headshake} 1s;
   ${compose(color, widthUtil, padding, maxWidthUtil, textAlignUtil)}
-`;
-
-const StyledCloseButtonWrapper = styled.div`
-  position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  opacity: 0.4;
-  cursor: pointer;
 `;
 
 export const Modal: FunctionComponent<ModalProps> = ({
@@ -160,15 +152,13 @@ export const Modal: FunctionComponent<ModalProps> = ({
                 {...containerProps}
               >
                 {hasCloseButton && (
-                  <StyledCloseButtonWrapper onClick={onClose}>
-                    <Icon
-                      icon="circle-close-solid"
-                      style={{
-                        color: 'var(--grey-2)',
-                        fontSize: '2.5rem',
-                      }}
-                    />
-                  </StyledCloseButtonWrapper>
+                  <IconButton
+                    icon="times"
+                    onClick={onClose}
+                    position="absolute"
+                    top="1.25rem"
+                    right="1.25rem"
+                  />
                 )}
                 {children}
               </StyledContainer>
