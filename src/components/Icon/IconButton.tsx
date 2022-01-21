@@ -8,53 +8,90 @@ import {
   SpaceProps,
 } from 'styled-system';
 import { Icon, IconType } from '.';
-import { MainColorType, NeutralColorType } from '../../assets/theme/global';
+import { ColorType } from '../../assets/theme/global';
 import { getColorValue } from '../../utils/styled/color';
 
-interface StyledIconButtonProps extends SpaceProps {
-  fontSize: string;
-  textColor: MainColorType | NeutralColorType;
+interface StatusColorInterface {
+  standard?: ColorType;
+  hover?: ColorType;
+}
+interface StyledIconButtonProps extends SpaceProps, PositionProps {
+  /**
+   * 按鈕一般狀態 -> Hover 的顏色是否高對比
+   */
+  contrast?: boolean;
+  /**
+   * 圓形外觀
+   */
+  circle?: boolean;
+  /**
+   * Icon 顏色
+   */
+  iconColor?: StatusColorInterface;
+  /**
+   * 按鈕背景顏色
+   */
+  bgColor?: StatusColorInterface;
 }
 
+const DefaultStandardColor = (contrast?: boolean): string =>
+  contrast ? getColorValue('grey-400') : 'white';
+const DefaultStandardBgColor = (contrast?: boolean): string =>
+  getColorValue(contrast ? 'transparent' : 'grey-200');
+const DefaultHoverColor = (contrast?: boolean): string =>
+  contrast ? getColorValue('gosky-blue') : 'white';
+const DefaultHoverBgColor = (contrast?: boolean): string =>
+  getColorValue('grey', contrast ? '200' : '400');
+
+/* eslint-disable indent */
 const StyledIconButton = styled.button<StyledIconButtonProps>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  background: none;
+  font-size: 1rem;
   border: none;
-  padding: 0.15625rem;
+  border-radius: ${({ circle }) => (circle ? '50%' : '0.25rem')};
+  padding: 0.375rem;
   cursor: pointer;
-  width: fit-content;
-  ${compose(space, position)}
+  transition: all 200ms ease;
+  transition-property: color, background-color;
 
-  i {
-    font-size: ${({ fontSize }) => fontSize};
-    line-height: 1;
-    color: ${({ textColor }) => getColorValue(textColor)};
-    transition: color 0.2s;
-  }
-  &:hover i {
-    color: ${({ textColor }) => getColorValue(textColor, '600')};
+  color: ${({ iconColor, contrast }) =>
+    iconColor?.standard
+      ? getColorValue(iconColor.standard)
+      : DefaultStandardColor(contrast)};
+  background-color: ${({ bgColor, contrast }) =>
+    bgColor?.standard
+      ? getColorValue(bgColor.standard)
+      : DefaultStandardBgColor(contrast)};
+
+  ${compose(space, position)};
+
+  :hover {
+    color: ${({ iconColor, contrast }) =>
+      iconColor?.hover
+        ? getColorValue(iconColor.hover)
+        : DefaultHoverColor(contrast)};
+    background-color: ${({ bgColor, contrast }) =>
+      bgColor?.hover
+        ? getColorValue(bgColor.hover)
+        : DefaultHoverBgColor(contrast)};
   }
 `;
+/* eslint-enable indent */
 
 export interface IconButtonProps
-  extends SpaceProps,
-    PositionProps,
-    ButtonHTMLAttributes<HTMLButtonElement> {
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    StyledIconButtonProps {
   icon: IconType;
-  fontSize?: string;
-  textColor?: MainColorType | NeutralColorType;
 }
 
 export const IconButton: FunctionComponent<IconButtonProps> = ({
   icon,
-  fontSize = '0.9375rem',
-  textColor = 'grey',
   ...props
 }) => {
   return (
-    <StyledIconButton fontSize={fontSize} textColor={textColor} {...props}>
+    <StyledIconButton {...props}>
       <Icon icon={icon} />
     </StyledIconButton>
   );
