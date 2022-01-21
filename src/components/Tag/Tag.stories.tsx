@@ -22,7 +22,7 @@ Default.args = {
 export const WithIcon = Template.bind({});
 WithIcon.args = {
   color: 'gosky-blue',
-  icon: <Icon icon="calendar" />,
+  icon: <Icon icon="star-circle" />,
 };
 
 export const Closeable = Template.bind({});

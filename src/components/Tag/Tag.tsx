@@ -24,15 +24,17 @@ const StyledTag = styled(ATag)<TagProps>`
   cursor: default;
 
   &.ant-tag {
-    border-radius: 2rem;
+    display: inline-flex;
+    align-items: center;
     font-size: ${FontSize('h4')};
+    line-height: 1.3;
+    margin-right: 0.5rem;
     padding: ${Padding(2, 5)};
+    border: 0;
+    border-radius: 2rem;
     color: ${({ color }) => color && getColorValue(color)};
     background-color: ${({ color }) =>
       color && getColorValue(color === 'grey-500' ? 'grey' : color, '200')};
-    border: 0;
-    display: flex;
-    align-items: center;
   }
 
   &.ant-tag-hidden {
@@ -44,7 +46,9 @@ const StyledTag = styled(ATag)<TagProps>`
     margin-left: 0.375rem;
 
     .anticon {
-      vertical-align: 0;
+      display: block;
+      width: 0.5rem;
+      height: 0.5rem;
     }
 
     &:hover {
@@ -57,7 +61,17 @@ const StyledTag = styled(ATag)<TagProps>`
 export const Tag: FunctionComponent<TagProps> = ({ closeIcon, ...props }) => (
   <StyledTag
     closeIcon={
-      closeIcon || <Icon style={{ fontSize: '0.5rem' }} icon="close" />
+      closeIcon || (
+        <Icon
+          style={{
+            fontSize: '1rem',
+            fontWeight: 600,
+            transform: 'scale(0.5)',
+            transformOrigin: 'top left',
+          }}
+          icon="times"
+        />
+      )
     }
     {...props}
   />
