@@ -13,7 +13,7 @@ export default {
 const breads = ['Home', 'First', 'Second'];
 const iconBreads = [
   <Icon icon="store" />,
-  <Icon icon="calendar" />,
+  <Icon icon="cog" />,
   <Icon icon="plane" />,
 ];
 
