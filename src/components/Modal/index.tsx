@@ -162,7 +162,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
                 {hasCloseButton && (
                   <StyledCloseButtonWrapper onClick={onClose}>
                     <Icon
-                      icon="circle-close-solid"
+                      icon="times"
                       style={{
                         color: 'var(--grey-2)',
                         fontSize: '2.5rem',

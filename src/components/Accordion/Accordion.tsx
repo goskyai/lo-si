@@ -73,8 +73,8 @@ const StyledAccordion = styled(Collapse)<AccordionProps>`
 const ExpandIcon: FunctionComponent<{ isActive: boolean }> = ({ isActive }) => {
   return (
     <Icon
-      icon="chevron-down"
-      rotate={isActive ? 0 : -90}
+      icon="chevron-right"
+      rotate={isActive ? 90 : 0}
       style={{ fontSize: '0.75rem' }}
     />
   );

@@ -15,14 +15,17 @@ const Template: ComponentStory<typeof Tag> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {
-  color: 'gosky-blue',
+Default.args = {};
+
+export const CustomColor = Template.bind({});
+CustomColor.args = {
+  color: 'gosky-orange',
 };
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
   color: 'gosky-blue',
-  icon: <Icon icon="calendar" />,
+  icon: <Icon icon="star-circle" />,
 };
 
 export const Closeable = Template.bind({});
