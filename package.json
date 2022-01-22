@@ -46,6 +46,7 @@
     "gulp-if": "^3.0.0",
     "gulp-less": "^5.0.0",
     "gulp-postcss": "^9.0.1",
+    "gulp-svg-sprite": "^1.5.0",
     "history": "^5.0.0",
     "husky": "^7.0.4",
     "less-plugin-npm-import": "^2.1.0",
@@ -89,7 +90,7 @@
     "normalize.css": "^8.0.1"
   },
   "scripts": {
-    "storybook": "npx gulp themes-compile && start-storybook -s ./public -p 6006 & npx gulp watch-themes-change",
+    "storybook": "npx gulp generate-sprite && npx gulp themes-compile && start-storybook -s ./public -p 6006 & npx gulp watch-themes-change",
     "build-storybook": "build-storybook",
     "lint": "eslint **/*.tsx --fix",
     "eslint": "eslint --max-warnings=0 --ext .ts,.tsx src -c .eslintrc.js",
