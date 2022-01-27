@@ -8,6 +8,8 @@ const gulpless = require('gulp-less');
 const postcss = require('gulp-postcss');
 const px2rem = require('postcss-px2rem');
 const NpmImportPlugin = require('less-plugin-npm-import');
+const svgSprite = require('gulp-svg-sprite');
+const svgmin = require('gulp-svgmin');
 
 const compilePipe = (isCommonTheme) => {
   return gulp
@@ -49,4 +51,19 @@ gulp.task('watch-themes-change', () => {
     'src/assets/theme/antd/common.less',
     gulp.series('common-theme-compile'),
   );
+});
+
+gulp.task('generate-sprite', (done) => {
+  gulp
+    .src('src/assets/icons/*.svg')
+    .pipe(svgmin())
+    .pipe(
+      svgSprite({
+        mode: {
+          symbol: true,
+        },
+      }),
+    )
+    .pipe(gulp.dest('src/assets/icons'));
+  done();
 });
