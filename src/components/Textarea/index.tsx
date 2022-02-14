@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { toString } from 'lodash-es';
 import { rgba } from 'polished';
 import {
   forwardRef,
@@ -105,7 +105,7 @@ export const Textarea: FunctionComponent<TextareaProps> = forwardRef<
 
   const exceeded = useMemo(() => {
     if (maxLength) {
-      return _.toString(value).length >= maxLength;
+      return toString(value).length >= maxLength;
     }
     return false;
   }, [value]);
@@ -141,7 +141,7 @@ export const Textarea: FunctionComponent<TextareaProps> = forwardRef<
           displayCounter={displayCounter}
           bg={bgColor}
         >
-          {_.toString(value).length}/{maxLength}
+          {toString(value).length}/{maxLength}
         </StyledCounter>
       )}
     </StyledWrapper>
