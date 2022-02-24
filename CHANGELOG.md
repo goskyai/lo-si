@@ -1,3 +1,12 @@
+## [1.4.1](https://github.com/goskyai/lo-si/compare/v1.4.0...v1.4.1) (2022-02-24)
+
+
+### Bug Fixes
+
+* add rollup-plugin-visualizer ([1732d82](https://github.com/goskyai/lo-si/commit/1732d82fb138ac128fe73048015f8762dde6948d))
+* instead lodash with lodash-es ([4b8016c](https://github.com/goskyai/lo-si/commit/4b8016c002f57703102e2819adb0a550fa42ae04))
+* year of PR template ([521444b](https://github.com/goskyai/lo-si/commit/521444bb4087e934a5cfe4781d5e898c3f226fad))
+
 # [1.4.0](https://github.com/goskyai/lo-si/compare/v1.3.1...v1.4.0) (2022-01-05)
 
 
