@@ -1,12 +1,11 @@
 import { To } from 'history';
-import _ from 'lodash';
+import { last, slice } from 'lodash-es';
 import { FunctionComponent } from 'react';
 import {
   Link as RouterLink,
   LinkProps as RouterLinkProps,
 } from 'react-router-dom';
 import styled from 'styled-components';
-
 import { Text } from '../Text';
 
 const StyledLink = styled(RouterLink)<RouterLinkProps>`
@@ -31,8 +30,8 @@ export interface BreadcrumbProps {
 }
 
 export const Breadcrumb: FunctionComponent<BreadcrumbProps> = ({ items }) => {
-  const links = _.slice(items, 0, items.length - 1) as LinkType[];
-  const lastItem = _.last(items) as LastItemType;
+  const links = slice(items, 0, items.length - 1) as LinkType[];
+  const lastItem = last(items) as LastItemType;
   return (
     <Text fontSize="h2" fontWeight={500}>
       {links.map((link, index) => (

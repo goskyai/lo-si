@@ -7,3 +7,6 @@ src/index.ts
 
 # compiled
 public/*.css
+
+# bundle size analyzer
+stats.html

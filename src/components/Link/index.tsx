@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { get } from 'lodash-es';
 import { AnchorHTMLAttributes, FunctionComponent } from 'react';
 import {
   Link as RouterLink,
@@ -48,7 +48,7 @@ const StyledRouterLink = styled(RouterLink)<LinkProps>`
 `;
 
 export const Link: FunctionComponent<LinkProps> = ({ to, ...props }) => {
-  const href = _.get(to, 'pathname', to);
+  const href = get(to, 'pathname', to);
   const externalRegex = /^http*|^#$/;
   const isExternal = externalRegex.test(href);
 

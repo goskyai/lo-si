@@ -7,6 +7,7 @@ import copy from 'rollup-plugin-copy';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import typescript from 'rollup-plugin-typescript2';
+// import visualizer from 'rollup-plugin-visualizer';
 
 const packageJson = require('./package.json');
 
@@ -45,5 +46,8 @@ export default {
     postcss({
       extensions: ['.css'],
     }),
+    // visualizer({
+    //   open: true,
+    // }),
   ],
 };
